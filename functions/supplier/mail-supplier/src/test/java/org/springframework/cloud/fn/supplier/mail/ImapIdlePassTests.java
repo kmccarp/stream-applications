@@ -38,7 +38,7 @@ public class ImapIdlePassTests extends AbstractMailSupplierTests {
 		final Flux<Message<?>> messageFlux = mailSupplier.get();
 		// then
 		StepVerifier.create(messageFlux)
-			.assertNext((message) -> {
+			.assertNext(message -> {
 					System.out.println("Message:" + message);
 					assertThat(((String) message.getPayload())).isEqualTo("foo");
 				}

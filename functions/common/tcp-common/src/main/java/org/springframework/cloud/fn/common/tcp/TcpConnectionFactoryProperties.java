@@ -37,7 +37,7 @@ public class TcpConnectionFactoryProperties {
 	 * Perform a reverse DNS lookup on the remote IP Address; if false,
 	 * just the IP address is included in the message headers.
 	 */
-	private boolean reverseLookup = false;
+	private boolean reverseLookup;
 
 	/**
 	 * The timeout (ms) before closing the socket when no data is received.
@@ -47,12 +47,12 @@ public class TcpConnectionFactoryProperties {
 	/**
 	 * Whether or not to use NIO.
 	 */
-	private boolean nio = false;
+	private boolean nio;
 
 	/**
 	 * Whether or not to use direct buffers.
 	 */
-	private boolean useDirectBuffers = false;
+	private boolean useDirectBuffers;
 
 	public int getPort() {
 		return this.port;

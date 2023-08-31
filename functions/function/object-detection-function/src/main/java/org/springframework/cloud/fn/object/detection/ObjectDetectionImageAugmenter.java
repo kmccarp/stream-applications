@@ -48,7 +48,7 @@ public class ObjectDetectionImageAugmenter implements BiFunction<byte[], List<Ob
 	private String imageFormat = DEFAULT_IMAGE_FORMAT;
 
 	private final boolean withMask;
-	private boolean agnosticColors = false;
+	private boolean agnosticColors;
 
 	public ObjectDetectionImageAugmenter() {
 		this(false);

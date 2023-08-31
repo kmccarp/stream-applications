@@ -52,5 +52,5 @@ public enum Encoding {
 	/**
 	 * L4 encoding.
 	 */
-	L4;
+	L4
 }

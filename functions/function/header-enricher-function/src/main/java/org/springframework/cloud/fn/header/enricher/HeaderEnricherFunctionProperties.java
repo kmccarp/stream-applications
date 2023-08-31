@@ -43,7 +43,7 @@ public class HeaderEnricherFunctionProperties {
 	/**
 	 * set to true to overwrite any existing message headers.
 	 */
-	private boolean overwrite = false;
+	private boolean overwrite;
 
 	@NotNull
 	public Properties getHeaders() {

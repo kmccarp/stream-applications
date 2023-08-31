@@ -72,7 +72,7 @@ abstract class SftpSourceTests {
 		startContainer(Collections.singletonMap("FILE_CONSUMER_MODE", "ref"));
 
 		await().atMost(DEFAULT_DURATION)
-			.until(outputMatcher.payloadMatches((String s) -> s.equals("\"/tmp/sftp-supplier/data.txt\"")));
+			.until(outputMatcher.payloadMatches("\"/tmp/sftp-supplier/data.txt\""::equals));
 	}
 
 	private void startContainer(Map<String, String> environment) {

@@ -48,7 +48,7 @@ public class JdbcSinkTests {
 
 			final JdbcOperations jdbcOperations = context.getBean(JdbcOperations.class);
 			String result = jdbcOperations.queryForObject("select payload from messages", String.class);
-			assertThat(result).isEqualTo(("hello42"));
+			assertThat(result).isEqualTo("hello42");
 		}
 	}
 

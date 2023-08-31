@@ -35,7 +35,7 @@ public class Tcp5424Tests extends AbstractSyslogSupplierTests {
 		final Flux<Message<?>> messageFlux = syslogSupplier.get();
 
 		final StepVerifier stepVerifier = StepVerifier.create(messageFlux)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 							assertThat(((Map) message.getPayload()).get("syslog_HOST")).isEqualTo("loggregator");
 						}
 				)

@@ -51,7 +51,7 @@ public class PgcopySinkPropertiesTests {
 	@Test
 	public void tableNameIsRequired() {
 		this.context.register(Conf.class);
-		assertThatThrownBy(() -> this.context.refresh())
+		assertThatThrownBy(this.context::refresh)
 				.isInstanceOf(BeanCreationException.class)
 				.cause()
 				.hasMessageContaining("Failed to bind properties under 'pgcopy' to org.springframework.cloud.stream.app.pgcopy.sink.PgcopySinkProperties");

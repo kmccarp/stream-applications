@@ -32,7 +32,7 @@ public abstract class RabbitMQConfig {
 	 */
 	public static RabbitMQContainer rabbitmq;
 
-	final static Network network = Network.SHARED;
+	static final Network network = Network.SHARED;
 
 	static {
 		rabbitmq = new RabbitMQContainer(DockerImageName.parse("rabbitmq:3.8-management"))

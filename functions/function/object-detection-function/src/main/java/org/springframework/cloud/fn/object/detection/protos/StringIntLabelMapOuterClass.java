@@ -132,7 +132,7 @@ public final class StringIntLabelMapOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.internal_static_org_springframework_cloud_fn_object_detection_protos_StringIntLabelMapItem_descriptor;
     }
@@ -160,7 +160,7 @@ public final class StringIntLabelMapOuterClass {
      */
     @java.lang.Override
     public boolean hasName() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return (bitField0_ & 0x00000001) != 0;
     }
     /**
      * <pre>
@@ -225,7 +225,7 @@ public final class StringIntLabelMapOuterClass {
      */
     @java.lang.Override
     public boolean hasId() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return (bitField0_ & 0x00000002) != 0;
     }
     /**
      * <pre>
@@ -253,7 +253,7 @@ public final class StringIntLabelMapOuterClass {
      */
     @java.lang.Override
     public boolean hasDisplayName() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return (bitField0_ & 0x00000004) != 0;
     }
     /**
      * <pre>
@@ -305,8 +305,12 @@ public final class StringIntLabelMapOuterClass {
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+		if (isInitialized == 1) {
+			return true;
+		}
+		if (isInitialized == 0) {
+			return false;
+		}
 
       memoizedIsInitialized = 1;
       return true;
@@ -315,13 +319,13 @@ public final class StringIntLabelMapOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if ((bitField0_ & 0x00000001) != 0) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeInt32(2, id_);
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if ((bitField0_ & 0x00000004) != 0) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, displayName_);
       }
       getUnknownFields().writeTo(output);
@@ -330,17 +334,19 @@ public final class StringIntLabelMapOuterClass {
     @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
-      if (size != -1) return size;
+		if (size != -1) {
+			return size;
+		}
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if ((bitField0_ & 0x00000001) != 0) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, id_);
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if ((bitField0_ & 0x00000004) != 0) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, displayName_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -358,23 +364,34 @@ public final class StringIntLabelMapOuterClass {
       }
       org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem other = (org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem) obj;
 
-      if (hasName() != other.hasName()) return false;
+		if (hasName() != other.hasName()) {
+			return false;
+		}
       if (hasName()) {
-        if (!getName()
-            .equals(other.getName())) return false;
+		  if (!getName()
+		.equals(other.getName())) {
+			  return false;
+		  }
       }
-      if (hasId() != other.hasId()) return false;
+		if (hasId() != other.hasId()) {
+			return false;
+		}
       if (hasId()) {
-        if (getId()
-            != other.getId()) return false;
+		  if (getId()
+		!= other.getId()) {
+			  return false;
+		  }
       }
-      if (hasDisplayName() != other.hasDisplayName()) return false;
+		if (hasDisplayName() != other.hasDisplayName()) {
+			return false;
+		}
       if (hasDisplayName()) {
-        if (!getDisplayName()
-            .equals(other.getDisplayName())) return false;
+		  if (!getDisplayName()
+		.equals(other.getDisplayName())) {
+			  return false;
+		  }
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-      return true;
+		return getUnknownFields().equals(other.getUnknownFields());
     }
 
     @java.lang.Override
@@ -488,8 +505,7 @@ public final class StringIntLabelMapOuterClass {
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
+      return new Builder(parent);
     }
     /**
      * Protobuf type {@code org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapItem}
@@ -498,7 +514,7 @@ public final class StringIntLabelMapOuterClass {
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapItem)
         org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItemOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.internal_static_org_springframework_cloud_fn_object_detection_protos_StringIntLabelMapItem_descriptor;
       }
@@ -525,11 +541,11 @@ public final class StringIntLabelMapOuterClass {
       public Builder clear() {
         super.clear();
         name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = bitField0_ & ~0x00000001;
         id_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = bitField0_ & ~0x00000002;
         displayName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = bitField0_ & ~0x00000004;
         return this;
       }
 
@@ -556,21 +572,21 @@ public final class StringIntLabelMapOuterClass {
       @java.lang.Override
       public org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem buildPartial() {
         org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem result = new org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          to_bitField0_ |= 0x00000001;
+        int fromBitField0 = bitField0_;
+        int toBitField0 = 0;
+        if ((fromBitField0 & 0x00000001) != 0) {
+          toBitField0 |= 0x00000001;
         }
         result.name_ = name_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
+        if ((fromBitField0 & 0x00000002) != 0) {
           result.id_ = id_;
-          to_bitField0_ |= 0x00000002;
+          toBitField0 |= 0x00000002;
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          to_bitField0_ |= 0x00000004;
+        if ((fromBitField0 & 0x00000004) != 0) {
+          toBitField0 |= 0x00000004;
         }
         result.displayName_ = displayName_;
-        result.bitField0_ = to_bitField0_;
+        result.bitField0_ = toBitField0;
         onBuilt();
         return result;
       }
@@ -618,7 +634,9 @@ public final class StringIntLabelMapOuterClass {
       }
 
       public Builder mergeFrom(org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem other) {
-        if (other == org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem.getDefaultInstance()) return this;
+		  if (other == org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem.getDefaultInstance()) {
+			  return this;
+		  }
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -702,7 +720,7 @@ public final class StringIntLabelMapOuterClass {
        * @return Whether the name field is set.
        */
       public boolean hasName() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return (bitField0_ & 0x00000001) != 0;
       }
       /**
        * <pre>
@@ -783,7 +801,7 @@ public final class StringIntLabelMapOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = bitField0_ & ~0x00000001;
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
@@ -822,7 +840,7 @@ public final class StringIntLabelMapOuterClass {
        */
       @java.lang.Override
       public boolean hasId() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return (bitField0_ & 0x00000002) != 0;
       }
       /**
        * <pre>
@@ -863,7 +881,7 @@ public final class StringIntLabelMapOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = bitField0_ & ~0x00000002;
         id_ = 0;
         onChanged();
         return this;
@@ -879,7 +897,7 @@ public final class StringIntLabelMapOuterClass {
        * @return Whether the displayName field is set.
        */
       public boolean hasDisplayName() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return (bitField0_ & 0x00000004) != 0;
       }
       /**
        * <pre>
@@ -952,7 +970,7 @@ public final class StringIntLabelMapOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = bitField0_ & ~0x00000004;
         displayName_ = getDefaultInstance().getDisplayName();
         onChanged();
         return this;
@@ -1003,7 +1021,7 @@ public final class StringIntLabelMapOuterClass {
     }
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<StringIntLabelMapItem>
-        PARSER = new com.google.protobuf.AbstractParser<StringIntLabelMapItem>() {
+        PARSER = new com.google.protobuf.AbstractParser<>() {
       @java.lang.Override
       public StringIntLabelMapItem parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -1096,7 +1114,7 @@ public final class StringIntLabelMapOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.internal_static_org_springframework_cloud_fn_object_detection_protos_StringIntLabelMap_descriptor;
     }
@@ -1153,8 +1171,12 @@ public final class StringIntLabelMapOuterClass {
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+		if (isInitialized == 1) {
+			return true;
+		}
+		if (isInitialized == 0) {
+			return false;
+		}
 
       memoizedIsInitialized = 1;
       return true;
@@ -1172,7 +1194,9 @@ public final class StringIntLabelMapOuterClass {
     @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
-      if (size != -1) return size;
+		if (size != -1) {
+			return size;
+		}
 
       size = 0;
       for (int i = 0; i < item_.size(); i++) {
@@ -1194,10 +1218,11 @@ public final class StringIntLabelMapOuterClass {
       }
       org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMap other = (org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMap) obj;
 
-      if (!getItemList()
-          .equals(other.getItemList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-      return true;
+		if (!getItemList()
+	.equals(other.getItemList())) {
+			return false;
+		}
+		return getUnknownFields().equals(other.getUnknownFields());
     }
 
     @java.lang.Override
@@ -1303,8 +1328,7 @@ public final class StringIntLabelMapOuterClass {
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
+      return new Builder(parent);
     }
     /**
      * Protobuf type {@code org.springframework.cloud.fn.object.detection.protos.StringIntLabelMap}
@@ -1313,7 +1337,7 @@ public final class StringIntLabelMapOuterClass {
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:org.springframework.cloud.fn.object.detection.protos.StringIntLabelMap)
         org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.internal_static_org_springframework_cloud_fn_object_detection_protos_StringIntLabelMap_descriptor;
       }
@@ -1345,7 +1369,7 @@ public final class StringIntLabelMapOuterClass {
           item_ = null;
           itemBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = bitField0_ & ~0x00000001;
         return this;
       }
 
@@ -1374,9 +1398,9 @@ public final class StringIntLabelMapOuterClass {
         org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMap result = new org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMap(this);
         int from_bitField0_ = bitField0_;
         if (itemBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if ((bitField0_ & 0x00000001) != 0) {
             item_ = java.util.Collections.unmodifiableList(item_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = bitField0_ & ~0x00000001;
           }
           result.item_ = item_;
         } else {
@@ -1429,12 +1453,14 @@ public final class StringIntLabelMapOuterClass {
       }
 
       public Builder mergeFrom(org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMap other) {
-        if (other == org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMap.getDefaultInstance()) return this;
+		  if (other == org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMap.getDefaultInstance()) {
+			  return this;
+		  }
         if (itemBuilder_ == null) {
           if (!other.item_.isEmpty()) {
             if (item_.isEmpty()) {
               item_ = other.item_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = bitField0_ & ~0x00000001;
             } else {
               ensureItemIsMutable();
               item_.addAll(other.item_);
@@ -1447,7 +1473,7 @@ public final class StringIntLabelMapOuterClass {
               itemBuilder_.dispose();
               itemBuilder_ = null;
               item_ = other.item_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = bitField0_ & ~0x00000001;
               itemBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getItemFieldBuilder() : null;
@@ -1515,8 +1541,8 @@ public final class StringIntLabelMapOuterClass {
       private java.util.List<org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem> item_ =
         java.util.Collections.emptyList();
       private void ensureItemIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          item_ = new java.util.ArrayList<org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem>(item_);
+        if ((bitField0_ & 0x00000001) == 0) {
+          item_ = new java.util.ArrayList<>(item_);
           bitField0_ |= 0x00000001;
          }
       }
@@ -1667,7 +1693,7 @@ public final class StringIntLabelMapOuterClass {
       public Builder clearItem() {
         if (itemBuilder_ == null) {
           item_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = bitField0_ & ~0x00000001;
           onChanged();
         } else {
           itemBuilder_.clear();
@@ -1741,8 +1767,7 @@ public final class StringIntLabelMapOuterClass {
           org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem, org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem.Builder, org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItemOrBuilder> 
           getItemFieldBuilder() {
         if (itemBuilder_ == null) {
-          itemBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem, org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItem.Builder, org.springframework.cloud.fn.object.detection.protos.StringIntLabelMapOuterClass.StringIntLabelMapItemOrBuilder>(
+          itemBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<>(
                   item_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -1778,7 +1803,7 @@ public final class StringIntLabelMapOuterClass {
     }
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<StringIntLabelMap>
-        PARSER = new com.google.protobuf.AbstractParser<StringIntLabelMap>() {
+        PARSER = new com.google.protobuf.AbstractParser<>() {
       @java.lang.Override
       public StringIntLabelMap parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -1830,8 +1855,8 @@ public final class StringIntLabelMapOuterClass {
       getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+	private static final  com.google.protobuf.Descriptors.FileDescriptor
+descriptor;
   static {
     java.lang.String[] descriptorData = {
       "\n\032string_int_label_map.proto\0224org.spring" +

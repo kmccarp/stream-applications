@@ -63,7 +63,7 @@ public class DebeziumReactiveConsumerConfiguration implements BeanClassLoaderAwa
 	 */
 	public static final String ORG_SPRINGFRAMEWORK_KAFKA_SUPPORT_KAFKA_NULL = "org.springframework.kafka.support.KafkaNull";
 
-	private Object kafkaNull = null;
+	private Object kafkaNull;
 
 	@Override
 	public void setBeanClassLoader(ClassLoader classLoader) {

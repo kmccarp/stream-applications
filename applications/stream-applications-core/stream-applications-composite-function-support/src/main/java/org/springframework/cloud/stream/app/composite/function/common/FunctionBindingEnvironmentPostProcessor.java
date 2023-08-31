@@ -40,7 +40,7 @@ import org.springframework.util.StringUtils;
 
 public class FunctionBindingEnvironmentPostProcessor implements EnvironmentPostProcessor {
 
-	private static Log log = LogFactory.getLog(FunctionBindingEnvironmentPostProcessor.class);
+	private static final Log log = LogFactory.getLog(FunctionBindingEnvironmentPostProcessor.class);
 
 	private static final String DEFAULT_INPUT = "input";
 

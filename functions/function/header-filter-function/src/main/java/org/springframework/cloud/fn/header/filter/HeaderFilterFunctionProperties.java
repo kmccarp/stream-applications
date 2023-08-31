@@ -27,7 +27,7 @@ public class HeaderFilterFunctionProperties {
 	/**
 	 * Indicates the need to remove all headers.
 	 */
-	private boolean deleteAll = false;
+	private boolean deleteAll;
 
 	/**
 	 * Remove all headers named. A comma, space separated list of header names.

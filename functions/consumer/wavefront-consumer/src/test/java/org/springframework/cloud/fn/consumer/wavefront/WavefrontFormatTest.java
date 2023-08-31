@@ -107,8 +107,7 @@ public class WavefrontFormatTest {
 		final String dataJsonString = "{ \"value\": a}";
 		final WavefrontConsumerProperties properties = new WavefrontConsumerProperties("testMetricName", "testSource",
 				expression("$.value"), null, Collections.emptyMap(), null, null, null);
-		final Exception exception = Assertions.assertThrows(RuntimeException.class, () ->
-				new WavefrontFormat(properties, new GenericMessage<>(dataJsonString)).getFormattedString());
+		final Exception exception = Assertions.assertThrows(RuntimeException.class, new WavefrontFormat(properties, new GenericMessage<>(dataJsonString))::getFormattedString);
 		assertThat(exception.getLocalizedMessage().startsWith("The metric value has to be a double-precision floating"))
 				.isTrue();
 	}
@@ -119,7 +118,7 @@ public class WavefrontFormatTest {
 		final WavefrontConsumerProperties properties = new WavefrontConsumerProperties("testMetricName", "testSource",
 				expression("$.value"), expression("$.timestamp"), Collections.emptyMap(), null, null, null);
 		final Exception exception = Assertions.assertThrows(RuntimeException.class,
-				() -> new WavefrontFormat(properties, new GenericMessage<>(dataJsonString)).getFormattedString());
+				new WavefrontFormat(properties, new GenericMessage<>(dataJsonString))::getFormattedString);
 		assertThat(exception.getLocalizedMessage().startsWith("The timestamp value has to be a number")).isTrue();
 	}
 
@@ -179,7 +178,7 @@ public class WavefrontFormatTest {
 					expression("$.value"), null, pointTagsExpressionsPointValueMap, null, null, null);
 
 			final Exception exception = Assertions.assertThrows(RuntimeException.class,
-					() -> new WavefrontFormat(properties, new GenericMessage<>(dataJsonString)).getFormattedString());
+					new WavefrontFormat(properties, new GenericMessage<>(dataJsonString))::getFormattedString);
 			assertThat(exception.getLocalizedMessage()
 					.startsWith("Point tag key \"" + invalidPointTagKey + "\" contains invalid characters")).isTrue();
 		});

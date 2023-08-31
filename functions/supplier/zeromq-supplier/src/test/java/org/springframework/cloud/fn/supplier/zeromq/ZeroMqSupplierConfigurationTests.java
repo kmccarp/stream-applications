@@ -75,7 +75,7 @@ public class ZeroMqSupplierConfigurationTests {
 
 		StepVerifier stepVerifier =
 				StepVerifier.create(subject.get())
-						.assertNext((message) ->
+						.assertNext(message ->
 								assertThat(message.getPayload())
 										.asInstanceOf(InstanceOfAssertFactories.type(byte[].class))
 										.isEqualTo("test".getBytes(ZMQ.CHARSET))

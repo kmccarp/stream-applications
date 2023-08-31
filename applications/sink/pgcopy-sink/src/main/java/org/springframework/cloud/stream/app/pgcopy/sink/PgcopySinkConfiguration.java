@@ -129,7 +129,7 @@ public class PgcopySinkConfiguration {
 		// the copy command
 		final StringBuilder sql = new StringBuilder("COPY " + properties.getTableName());
 		if (columns.length() > 0) {
-			sql.append(" (" + columns + ")");
+			sql.append(" (").append(columns).append(")");
 		}
 		sql.append(" FROM STDIN");
 
@@ -141,7 +141,7 @@ public class PgcopySinkConfiguration {
 			options.append(escapedOptionCharacterValue(options.length(), "DELIMITER", properties.getDelimiter()));
 		}
 		if (properties.getNullString() != null) {
-			options.append((options.length() > 0 ? " " : "") + "NULL '" + properties.getNullString() + "'");
+			options.append((options.length() > 0 ? " " : "")).append("NULL '").append(properties.getNullString()).append("'");
 		}
 		if (properties.getQuote() != null) {
 			options.append(quotedOptionCharacterValue(options.length(), "QUOTE", properties.getQuote()));
@@ -150,7 +150,7 @@ public class PgcopySinkConfiguration {
 			options.append(quotedOptionCharacterValue(options.length(), "ESCAPE", properties.getEscape()));
 		}
 		if (options.length() > 0) {
-			sql.append(" WITH " + options.toString());
+			sql.append(" WITH ").append(options.toString());
 		}
 
 		return new MessageHandler() {
@@ -205,7 +205,7 @@ public class PgcopySinkConfiguration {
 					message = exception.getMessage();
 				}
 				try {
-					txTemplate.execute(new TransactionCallback<Long>() {
+					txTemplate.execute(new TransactionCallback<>() {
 						@Override
 						public Long doInTransaction(TransactionStatus transactionStatus) {
 							jdbcTemplate.update(
@@ -221,7 +221,7 @@ public class PgcopySinkConfiguration {
 			}
 
 			private long doCopy(final Collection<?> payloads, TransactionTemplate txTemplate) {
-				Long rows = txTemplate.execute(transactionStatus -> jdbcTemplate.execute(
+				return txTemplate.execute(transactionStatus -> jdbcTemplate.execute(
 						new ConnectionCallback<Long>() {
 							@Override
 							public Long doInConnection(Connection connection) throws SQLException, DataAccessException {
@@ -237,7 +237,6 @@ public class PgcopySinkConfiguration {
 							}
 						}
 				));
-				return rows;
 			}
 		};
 	}
@@ -286,8 +285,7 @@ public class PgcopySinkConfiguration {
 
 	@Bean
 	public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-		JdbcTemplate jt = new JdbcTemplate(dataSource);
-		return jt;
+		return new JdbcTemplate(dataSource);
 	}
 
 	private String quotedOptionCharacterValue(int length, String option, char value) {
@@ -300,7 +298,7 @@ public class PgcopySinkConfiguration {
 
 	private void verifyErrorTable(final JdbcTemplate jdbcTemplate, final TransactionTemplate txTemplate) {
 		try {
-			txTemplate.execute(new TransactionCallback<Long>() {
+			txTemplate.execute(new TransactionCallback<>() {
 				@Override
 				public Long doInTransaction(TransactionStatus transactionStatus) {
 					jdbcTemplate.update(

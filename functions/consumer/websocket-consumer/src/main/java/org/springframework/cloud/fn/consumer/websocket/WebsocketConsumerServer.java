@@ -45,11 +45,11 @@ public class WebsocketConsumerServer {
 
 	private static final Log logger = LogFactory.getLog(WebsocketConsumerServer.class);
 
-	static final List<Channel> channels = Collections.synchronizedList(new ArrayList<Channel>());
+	static final List<Channel> channels = Collections.synchronizedList(new ArrayList<>());
 
-	private WebsocketConsumerProperties properties;
+	private final WebsocketConsumerProperties properties;
 
-	private WebsocketConsumerServerInitializer initializer;
+	private final WebsocketConsumerServerInitializer initializer;
 
 	private EventLoopGroup bossGroup;
 

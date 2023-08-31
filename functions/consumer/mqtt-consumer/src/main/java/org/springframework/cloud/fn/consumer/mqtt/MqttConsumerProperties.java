@@ -51,7 +51,7 @@ public class MqttConsumerProperties {
 	/**
 	 * whether to set the 'retained' flag.
 	 */
-	private boolean retained = false;
+	private boolean retained;
 
 	/**
 	 * the charset used to convert a String payload to byte[].
@@ -61,7 +61,7 @@ public class MqttConsumerProperties {
 	/**
 	 * whether or not to use async sends.
 	 */
-	private boolean async = false;
+	private boolean async;
 
 	@Range(min = 0, max = 2)
 	public int getQos() {

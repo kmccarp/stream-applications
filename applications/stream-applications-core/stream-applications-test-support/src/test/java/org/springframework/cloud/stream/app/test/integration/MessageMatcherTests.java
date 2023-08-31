@@ -49,7 +49,7 @@ public class MessageMatcherTests {
 
 	@Test
 	void testWrapper() {
-		Predicate<String> p = s -> s.equals("hello");
+		Predicate<String> p = "hello"::equals;
 		MessageMatcher v = MessageMatcher.payloadMatcher(p);
 		assertThat(v.getPredicate()).isEqualTo(p);
 		assertThat(v.test(MessageBuilder.withPayload("hello").build())).isTrue();

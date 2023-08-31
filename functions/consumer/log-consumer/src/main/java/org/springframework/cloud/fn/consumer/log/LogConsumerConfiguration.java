@@ -41,7 +41,7 @@ public class LogConsumerConfiguration {
 
 	@Bean
 	IntegrationFlow logConsumerFlow(LogConsumerProperties logSinkProperties) {
-		return IntegrationFlows.from(MessageConsumer.class, (gateway) -> gateway.beanName("logConsumer"))
+		return IntegrationFlows.from(MessageConsumer.class, gateway -> gateway.beanName("logConsumer"))
 				.log(logSinkProperties.getLevel(), logSinkProperties.getName(), logSinkProperties.getExpression())
 				.nullChannel();
 	}

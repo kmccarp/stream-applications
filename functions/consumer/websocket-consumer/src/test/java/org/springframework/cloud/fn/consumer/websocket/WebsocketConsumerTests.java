@@ -71,9 +71,9 @@ public class WebsocketConsumerTests {
 	@Test
 	public void checkCmdlineArgs() {
 		assertThat(properties.getPath()).isEqualTo("/some_websocket_path");
-		assertThat(properties.getPort()).isEqualTo((0));
-		assertThat(properties.getLogLevel()).isEqualTo(("DEBUG"));
-		assertThat(properties.getThreads()).isEqualTo((2));
+		assertThat(properties.getPort()).isEqualTo(0);
+		assertThat(properties.getLogLevel()).isEqualTo("DEBUG");
+		assertThat(properties.getThreads()).isEqualTo(2);
 	}
 
 	@Test

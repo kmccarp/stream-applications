@@ -35,15 +35,15 @@ public abstract class StreamAppContainerTestUtils {
 	 */
 	public static final String SPRINGCLOUDSTREAM_REPOSITOTRY = "springcloudstream";
 
-	public static final String imageName(String appName, String version) {
+	public static String imageName(String appName, String version) {
 		return imageName(SPRINGCLOUDSTREAM_REPOSITOTRY, appName, version);
 	}
 
-	public static final String imageName(String repository, String appName, String version) {
+	public static String imageName(String repository, String appName, String version) {
 		return repository + "/" + appName + ":" + version;
 	}
 
-	public static final String localHostAddress() {
+	public static String localHostAddress() {
 		try {
 			return InetAddress.getLocalHost().getHostAddress();
 		}
@@ -52,7 +52,7 @@ public abstract class StreamAppContainerTestUtils {
 		}
 	}
 
-	public static final File resourceAsFile(String path) {
+	public static File resourceAsFile(String path) {
 		try {
 			return new ClassPathResource(path).getFile();
 		}
@@ -61,7 +61,7 @@ public abstract class StreamAppContainerTestUtils {
 		}
 	}
 
-	public static final int findAvailablePort() {
+	public static int findAvailablePort() {
 		return TestSocketUtils.findAvailableTcpPort();
 	}
 }

@@ -61,7 +61,7 @@ import static org.mockito.Mockito.mock;
  */
 public class MetadataStoreAutoConfigurationTests {
 
-	private final static List<Class<? extends ConcurrentMetadataStore>> METADATA_STORE_CLASSES =
+	private static final List<Class<? extends ConcurrentMetadataStore>> METADATA_STORE_CLASSES =
 			List.of(
 					RedisMetadataStore.class,
 					MongoDbMetadataStore.class,

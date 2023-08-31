@@ -67,7 +67,7 @@ public class PropertiesPopulated3Tests extends AbstractJmsSupplierTests {
 		final Flux<Message<?>> messageFlux = jmsSupplier.get();
 
 		final StepVerifier stepVerifier = StepVerifier.create(messageFlux)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 							assertThat(message.getPayload())
 									.isEqualTo("Hello, world!");
 						}

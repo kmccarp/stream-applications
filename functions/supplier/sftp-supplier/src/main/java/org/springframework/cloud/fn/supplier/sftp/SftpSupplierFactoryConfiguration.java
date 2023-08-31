@@ -98,7 +98,7 @@ public class SftpSupplierFactoryConfiguration {
 		return new CachingSessionFactory<>(sftpSessionFactory);
 	}
 
-	public final static class DelegatingFactoryWrapper implements DisposableBean {
+	public static final class DelegatingFactoryWrapper implements DisposableBean {
 
 		private final DelegatingSessionFactory<SftpClient.DirEntry> delegatingSessionFactory;
 

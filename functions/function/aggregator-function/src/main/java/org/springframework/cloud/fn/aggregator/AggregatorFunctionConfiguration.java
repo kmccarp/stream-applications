@@ -67,7 +67,7 @@ public class AggregatorFunctionConfiguration {
 		FluxMessageChannel outputChannel
 	) {
 		return input -> Flux.from(outputChannel)
-			.doOnRequest((request) -> inputChannel.subscribeTo(input));
+			.doOnRequest(request -> inputChannel.subscribeTo(input));
 	}
 
 	@Bean

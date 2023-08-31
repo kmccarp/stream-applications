@@ -96,13 +96,13 @@ public class DebeziumSupplierAvroFormatTest {
 	@Test
 	public void mysqlWithAvroContentFormat() {
 
-		String MYSQL_MAPPED_PORT = String.valueOf(debeziumMySQL.getMappedPort(3306));
-		String APICURIO_URL = "http://localhost:" + String.valueOf(apicurio.getMappedPort(8080)) + "/apis/registry/v2";
+		String mysqlMappedPort = String.valueOf(debeziumMySQL.getMappedPort(3306));
+		String apicurioUrl = "http://localhost:" + String.valueOf(apicurio.getMappedPort(8080)) + "/apis/registry/v2";
 
 		try (ConfigurableApplicationContext context = applicationBuilder.run(
-				"--debezium.properties.key.converter.apicurio.registry.url=" + APICURIO_URL,
-				"--debezium.properties.value.converter.apicurio.registry.url=" + APICURIO_URL,
-				"--debezium.properties.database.port=" + MYSQL_MAPPED_PORT)) {
+				"--debezium.properties.key.converter.apicurio.registry.url=" + apicurioUrl,
+				"--debezium.properties.value.converter.apicurio.registry.url=" + apicurioUrl,
+				"--debezium.properties.database.port=" + mysqlMappedPort)) {
 
 			OutputDestination outputDestination = context.getBean(OutputDestination.class);
 

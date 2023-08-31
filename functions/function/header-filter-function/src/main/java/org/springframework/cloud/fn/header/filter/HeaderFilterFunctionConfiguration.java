@@ -45,7 +45,7 @@ public class HeaderFilterFunctionConfiguration {
 	@Bean
 	public Function<Message<?>, Message<?>> headerFilterFunction() {
 		if (properties.isDeleteAll()) {
-			return (message) -> {
+			return message -> {
 				var  accessor = new IntegrationMessageHeaderAccessor(message);
 				var headers = new HashSet<>(message.getHeaders().keySet());
 				headers.removeIf(accessor::isReadOnly);

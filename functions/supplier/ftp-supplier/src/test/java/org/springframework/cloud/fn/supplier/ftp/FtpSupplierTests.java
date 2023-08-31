@@ -66,12 +66,12 @@ public class FtpSupplierTests extends FtpTestSupport {
 		assertThat(this.sessionFactory).isInstanceOf(CachingSessionFactory.class);
 		StepVerifier stepVerifier =
 				StepVerifier.create(messageFlux)
-						.assertNext((message) -> {
+						.assertNext(message -> {
 							assertThat(new File(message.getPayload().toString().replaceAll("\"", ""))).isEqualTo(
 									new File(this.config.getLocalDir(), "ftpSource1.txt"));
 								}
 						)
-						.assertNext((message) -> {
+						.assertNext(message -> {
 							assertThat(new File(message.getPayload().toString().replaceAll("\"", ""))).isEqualTo(
 									new File(this.config.getLocalDir(), "ftpSource2.txt"));
 						})

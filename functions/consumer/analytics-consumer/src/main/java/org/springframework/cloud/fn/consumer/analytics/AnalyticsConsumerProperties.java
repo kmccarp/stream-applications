@@ -118,11 +118,11 @@ public class AnalyticsConsumerProperties {
 	}
 
 	public Expression getComputedAmountExpression() {
-		return (amountExpression != null ? amountExpression : new LiteralExpression("1.0"));
+		return amountExpression != null ? amountExpression : new LiteralExpression("1.0");
 	}
 
 	public Expression getComputedNameExpression() {
-		return (nameExpression != null ? nameExpression : new LiteralExpression(getName()));
+		return nameExpression != null ? nameExpression : new LiteralExpression(getName());
 	}
 
 	@AssertTrue(message = "exactly one of 'name' and 'nameExpression' must be set")

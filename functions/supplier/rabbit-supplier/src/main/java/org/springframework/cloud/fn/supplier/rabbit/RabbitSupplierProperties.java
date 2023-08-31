@@ -34,7 +34,7 @@ public class RabbitSupplierProperties {
 	/**
 	 * Whether the channel is transacted.
 	 */
-	private boolean transacted = false;
+	private boolean transacted;
 
 	/**
 	 * The queues to which the source will listen for messages.
@@ -69,7 +69,7 @@ public class RabbitSupplierProperties {
 	/**
 	 * true to enable retry.
 	 */
-	private boolean enableRetry = false;
+	private boolean enableRetry;
 
 	/**
 	 * When true, use a separate connection based on the boot properties.

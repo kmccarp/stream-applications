@@ -83,7 +83,7 @@ public class TwitterStreamSupplierProperties {
 		/**
 		 * Indicates the number of previous statuses to stream before transitioning to the live stream.
 		 */
-		private int count = 0;
+		private int count;
 
 		/**
 		 * Specifies the users, by ID, to receive public tweets from.

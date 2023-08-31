@@ -65,7 +65,7 @@ public class ProtoBufGraphDefinition implements GraphDefinition {
 		//	throw new RuntimeException(e);
 		//}
 
-		Graph graph = ((Graph) tf.scope().env());
+		Graph graph = (Graph) tf.scope().env();
 		Iterator<Operation> ops = graph.operations();
 		while (ops.hasNext()) {
 			System.out.println(ops.next().name());

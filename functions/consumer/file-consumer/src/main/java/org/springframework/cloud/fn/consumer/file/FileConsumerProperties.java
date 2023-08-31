@@ -42,7 +42,7 @@ public class FileConsumerProperties {
 	/**
 	 * A flag to indicate whether adding a newline after the write should be suppressed.
 	 */
-	private boolean binary = false;
+	private boolean binary;
 
 	/**
 	 * The charset to use when writing text content.

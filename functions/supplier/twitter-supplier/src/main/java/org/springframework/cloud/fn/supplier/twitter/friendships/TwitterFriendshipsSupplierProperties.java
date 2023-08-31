@@ -63,7 +63,7 @@ public class TwitterFriendshipsSupplierProperties {
 	/**
 	 * When set to true, statuses will not be included in the returned user objects.
 	 */
-	private boolean skipStatus = false;
+	private boolean skipStatus;
 
 	/**
 	 * The user object entities node will be included when set to false.

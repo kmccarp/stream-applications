@@ -65,7 +65,7 @@ public class KafkaSupplierTests {
 						"spring.kafka.consumer.group-id=test-group1",
 						"spring.kafka.consumer.auto-offset-reset=earliest",
 						"kafka.supplier.topicPattern=default.+")
-				.run((context) -> {
+				.run(context -> {
 					String testPayload1 = "test data #1";
 					String testPayload2 = "test data #2";
 
@@ -93,7 +93,7 @@ public class KafkaSupplierTests {
 						"spring.kafka.listener.type=BATCH",
 						"kafka.supplier.topics=testTopic1,testTopic2",
 						"kafka.supplier.recordFilter=value() == 'test data #2'")
-				.run((context) -> {
+				.run(context -> {
 					String testPayload1 = "test data #1";
 					String testPayload2 = "test data #2";
 

@@ -78,7 +78,7 @@ public class TwitterUsersFunctionProperties {
 			return (this.getLookup().getScreenName() != null) || (this.getLookup().getUserId() != null);
 		}
 		else if (this.getType() == UserQueryType.search) {
-			return (this.getSearch().getQuery() != null);
+			return this.getSearch().getQuery() != null;
 		}
 
 		return false;

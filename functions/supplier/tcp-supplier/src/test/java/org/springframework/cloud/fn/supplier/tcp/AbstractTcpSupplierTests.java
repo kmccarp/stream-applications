@@ -62,12 +62,12 @@ public class AbstractTcpSupplierTests {
 		final Flux<Message<?>> messageFlux = tcpSupplier.get();
 
 		final StepVerifier stepVerifier = StepVerifier.create(messageFlux)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 							assertThat(message.getPayload())
 									.isEqualTo(payload.getBytes());
 						}
 				)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 							assertThat(message.getPayload())
 									.isEqualTo(payload.getBytes());
 						}

@@ -59,7 +59,7 @@ abstract class CassandraConsumerApplicationTests implements CassandraContainerTe
 
 	@DynamicPropertySource
 	static void registerConfigurationProperties(DynamicPropertyRegistry registry) {
-		registry.add("spring.cassandra.localDatacenter", () -> CASSANDRA_CONTAINER.getLocalDatacenter());
+		registry.add("spring.cassandra.localDatacenter", CASSANDRA_CONTAINER::getLocalDatacenter);
 		registry.add("spring.cassandra.contactPoints", () ->
 			Optional.of(CASSANDRA_CONTAINER.getContactPoint())
 					.map(contactPoint -> contactPoint.getAddress().getHostAddress() + ':' + contactPoint.getPort())

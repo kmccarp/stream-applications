@@ -54,7 +54,7 @@ public class FtpSupplierProperties {
 	/**
 	 * Set to true to delete remote files after successful transfer.
 	 */
-	private boolean deleteRemoteFiles = false;
+	private boolean deleteRemoteFiles;
 
 	/**
 	 * The local directory to use for file transfers.

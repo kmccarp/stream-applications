@@ -96,32 +96,32 @@ public class HttpSupplierApplicationTests {
 
 		StepVerifier stepVerifier =
 				StepVerifier.create(messageFlux)
-						.assertNext((message) ->
+						.assertNext(message ->
 								assertThat(message)
-										.satisfies((msg) -> assertThat(msg)
+										.satisfies(msg -> assertThat(msg)
 												.extracting(Message::getPayload)
 												.isEqualTo("test1".getBytes()))
-										.satisfies((msg) -> assertThat(msg.getHeaders())
+										.satisfies(msg -> assertThat(msg.getHeaders())
 												.containsEntry(MessageHeaders.CONTENT_TYPE,
 														new MediaType("text", "plain", StandardCharsets.UTF_8))
 												.extractingByKey(HttpHeaders.REQUEST_URL).asString()
 												.startsWith("https://"))
 						)
-						.assertNext((message) ->
+						.assertNext(message ->
 								assertThat(message)
 										.extracting(Message::getPayload)
 										.isEqualTo("{\"name\":\"test2\"}".getBytes()))
-						.assertNext((message) ->
+						.assertNext(message ->
 								assertThat(message)
 										.extracting(Message::getPayload)
 										.isEqualTo("{\"name\":\"test3\"}".getBytes()))
-						.assertNext((message) ->
+						.assertNext(message ->
 								assertThat(message)
-										.satisfies((msg) -> assertThat(msg)
+										.satisfies(msg -> assertThat(msg)
 												.extracting(Message::getPayload)
 												.asInstanceOf(InstanceOfAssertFactories.MAP)
 												.isEmpty())
-										.satisfies((msg) -> assertThat(msg.getHeaders())
+										.satisfies(msg -> assertThat(msg.getHeaders())
 												.doesNotContainKey(MessageHeaders.CONTENT_TYPE)))
 						.thenCancel()
 						.verifyLater();

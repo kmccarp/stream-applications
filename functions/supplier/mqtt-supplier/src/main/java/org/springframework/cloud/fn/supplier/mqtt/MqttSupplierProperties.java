@@ -51,7 +51,7 @@ public class MqttSupplierProperties {
 	/**
 	 * true to leave the payload as bytes.
 	 */
-	private boolean binary = false;
+	private boolean binary;
 
 	/**
 	 * the charset used to convert bytes to String (when binary is false).

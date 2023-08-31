@@ -395,7 +395,7 @@ public class SftpSupplierConfiguration {
 
 		@Bean
 		GenericSelector<Message<?>> duplicateFilter(ConcurrentMetadataStore metadataStore) {
-			return new GenericSelector<Message<?>>() {
+			return new GenericSelector<>() {
 				@Override
 				public boolean accept(Message<?> message) {
 

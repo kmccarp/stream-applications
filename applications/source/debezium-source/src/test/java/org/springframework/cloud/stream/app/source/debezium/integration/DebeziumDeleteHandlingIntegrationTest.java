@@ -142,21 +142,21 @@ public class DebeziumDeleteHandlingIntegrationTest {
 
 		Message<?> received;
 
-		if (deleteHandlingMode.equals("drop")) {
+		if ("drop".equals(deleteHandlingMode)) {
 			// Do nothing
 		}
-		else if (deleteHandlingMode.equals("none")) {
+		else if ("none".equals(deleteHandlingMode)) {
 			received = outputDestination.receive(Duration.ofSeconds(10).toMillis(), DebeziumTestUtils.BINDING_NAME);
 			assertThat(received).isNotNull();
 			assertThat(received.getPayload()).isEqualTo("null".getBytes());
 		}
-		else if (deleteHandlingMode.equals("rewrite")) {
+		else if ("rewrite".equals(deleteHandlingMode)) {
 			received = outputDestination.receive(Duration.ofSeconds(10).toMillis(), DebeziumTestUtils.BINDING_NAME);
 			assertThat(received).isNotNull();
 			assertThat(toString(received.getPayload()).contains("\"__deleted\":\"true\""));
 		}
 
-		if (!(isDropTombstones.equals("true")) && isKafkaPresent) {
+		if (!("true".equals(isDropTombstones)) && isKafkaPresent) {
 			received = outputDestination.receive(Duration.ofSeconds(10).toMillis(), DebeziumTestUtils.BINDING_NAME);
 			assertThat(received).isNotNull();
 			// Tombstones event should have KafkaNull payload

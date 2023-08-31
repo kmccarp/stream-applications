@@ -87,9 +87,9 @@ public class MongodbSupplierConfiguration {
 	public MongoDbMessageSource mongoDbSource(
 			@Nullable ComponentCustomizer<MongoDbMessageSource> mongoDbMessageSourceCustomizer) {
 
-		Expression queryExpression = (this.properties.getQueryExpression() != null
+		Expression queryExpression = this.properties.getQueryExpression() != null
 				? this.properties.getQueryExpression()
-				: new LiteralExpression(this.properties.getQuery()));
+				: new LiteralExpression(this.properties.getQuery());
 		MongoDbMessageSource mongoDbMessageSource = new MongoDbMessageSource(this.mongoTemplate, queryExpression);
 		mongoDbMessageSource.setCollectionNameExpression(new LiteralExpression(this.properties.getCollection()));
 		mongoDbMessageSource.setEntityClass(String.class);

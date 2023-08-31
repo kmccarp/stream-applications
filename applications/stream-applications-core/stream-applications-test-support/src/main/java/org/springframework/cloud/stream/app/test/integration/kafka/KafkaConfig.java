@@ -30,12 +30,12 @@ import org.testcontainers.utility.DockerImageName;
  */
 public abstract class KafkaConfig {
 
-	final static Network network = Network.SHARED;
+	static final Network network = Network.SHARED;
 
 	/**
 	 * The KafkaContainer.
 	 */
-	public final static KafkaContainer kafka = new KafkaContainer(
+	public static final KafkaContainer kafka = new KafkaContainer(
 			DockerImageName.parse("confluentinc/cp-kafka"))
 			.withExposedPorts(9092, 9093)
 			.withNetwork(network)

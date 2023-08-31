@@ -106,7 +106,7 @@ public class TwitterMessageSupplierConfiguration {
 	}
 
 	public static class MessageCursor {
-		private String cursor = null;
+		private String cursor;
 
 		public String getCursor() {
 			return cursor;

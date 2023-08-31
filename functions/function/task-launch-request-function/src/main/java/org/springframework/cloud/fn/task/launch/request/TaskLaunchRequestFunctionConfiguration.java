@@ -53,7 +53,7 @@ public class TaskLaunchRequestFunctionConfiguration {
 	/**
 	 * The function name.
 	 */
-	public final static String TASK_LAUNCH_REQUEST_FUNCTION_NAME = "taskLaunchRequestFunction";
+	public static final String TASK_LAUNCH_REQUEST_FUNCTION_NAME = "taskLaunchRequestFunction";
 
 	/**
 	 * A {@link java.util.function.Function} to transform a {@link Message} payload to a
@@ -66,7 +66,7 @@ public class TaskLaunchRequestFunctionConfiguration {
 	@Bean(name = TASK_LAUNCH_REQUEST_FUNCTION_NAME)
 	public TaskLaunchRequestFunction taskLaunchRequest(
 			TaskLaunchRequestMessageProcessor taskLaunchRequestMessageProcessor) {
-		return message -> taskLaunchRequestMessageProcessor.postProcessMessage(message);
+		return taskLaunchRequestMessageProcessor::postProcessMessage;
 	}
 
 	@Bean
@@ -132,7 +132,7 @@ public class TaskLaunchRequestFunctionConfiguration {
 					() -> KeyValueListParser.parseCommaDelimitedKeyValuePairs(
 							taskLaunchRequestProperties.getDeploymentProperties()));
 
-			this.taskNameSupplier(() -> taskLaunchRequestProperties.getTaskName());
+			this.taskNameSupplier(taskLaunchRequestProperties::getTaskName);
 		}
 	}
 

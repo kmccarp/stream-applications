@@ -119,7 +119,7 @@ public class AwsS3SupplierConfiguration {
 			return FileUtils.enhanceFlowForReadingMode(
 							IntegrationFlow.from(
 									IntegrationReactiveUtils.messageSourceToFlux(s3MessageSource)
-											.doOnSubscribe((s) -> s3MessageSource.start())),
+											.doOnSubscribe(s -> s3MessageSource.start())),
 							fileConsumerProperties)
 					.toReactivePublisher(true);
 		}

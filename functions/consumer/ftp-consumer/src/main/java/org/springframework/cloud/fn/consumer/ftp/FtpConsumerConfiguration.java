@@ -54,7 +54,7 @@ public class FtpConsumerConfiguration {
 			@Nullable ComponentCustomizer<FtpMessageHandlerSpec> ftpMessageHandlerSpecCustomizer) {
 
 		IntegrationFlowBuilder integrationFlowBuilder =
-				IntegrationFlows.from(MessageConsumer.class, (gateway) -> gateway.beanName("ftpConsumer"));
+				IntegrationFlows.from(MessageConsumer.class, gateway -> gateway.beanName("ftpConsumer"));
 
 		FtpMessageHandlerSpec handlerSpec =
 				Ftp.outboundAdapter(new FtpRemoteFileTemplate(ftpSessionFactory), properties.getMode())

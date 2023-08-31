@@ -36,7 +36,7 @@ public class Pop3PassTests extends AbstractMailSupplierTests {
 		final Flux<Message<?>> messageFlux = mailSupplier.get();
 
 		StepVerifier.create(messageFlux)
-			.assertNext((message) -> {
+			.assertNext(message -> {
 					assertThat(((String) message.getPayload())).contains("foo");
 				}
 			)

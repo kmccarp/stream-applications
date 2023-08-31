@@ -37,7 +37,7 @@ public class Pop3FailTests extends AbstractMailSupplierTests {
 		final Flux<Message<?>> messageFlux = mailSupplier.get();
 		// then
 		StepVerifier.create(messageFlux)
-			.assertNext((message) -> {
+			.assertNext(message -> {
 					assertThat(((String) message.getPayload())).isNotEqualTo("Test Mail");
 				}
 			)

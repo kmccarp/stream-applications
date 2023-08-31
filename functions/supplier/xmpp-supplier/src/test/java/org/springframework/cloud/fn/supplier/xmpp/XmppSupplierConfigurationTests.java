@@ -66,8 +66,8 @@ public class XmppSupplierConfigurationTests implements XmppTestContainerSupport 
 
 	@DynamicPropertySource
 	static void registerConfigurationProperties(DynamicPropertyRegistry registry) {
-		registry.add("xmpp.factory.host", () -> XmppTestContainerSupport.getXmppHost());
-		registry.add("xmpp.factory.port", () -> XmppTestContainerSupport.getXmppMappedPort());
+		registry.add("xmpp.factory.host", XmppTestContainerSupport::getXmppHost);
+		registry.add("xmpp.factory.port", XmppTestContainerSupport::getXmppMappedPort);
 	}
 
 	@Autowired
@@ -104,7 +104,7 @@ public class XmppSupplierConfigurationTests implements XmppTestContainerSupport 
 
 		var stepVerifier =
 				StepVerifier.create(subject.get())
-						.assertNext((message) -> {
+						.assertNext(message -> {
 
 							assertThat(message.getPayload())
 									.asInstanceOf(InstanceOfAssertFactories.type(String.class))

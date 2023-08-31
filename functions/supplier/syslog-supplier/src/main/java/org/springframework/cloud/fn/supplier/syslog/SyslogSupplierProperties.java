@@ -44,7 +44,7 @@ public class SyslogSupplierProperties {
 	/**
 	 * whether or not to use NIO (when supporting a large number of connections).
 	 */
-	private boolean nio = false;
+	private boolean nio;
 
 	/**
 	 * whether or not to perform a reverse lookup on the incoming socket.
@@ -137,6 +137,6 @@ public class SyslogSupplierProperties {
 		/**
 		 * Represents both TCP and UDP.
 		 */
-		both;
+		both
 	}
 }
