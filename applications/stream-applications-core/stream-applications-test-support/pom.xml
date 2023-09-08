@@ -12,9 +12,10 @@
 	<artifactId>stream-applications-test-support</artifactId>
 	<name>stream-applications-test-support</name>
 
-	<properties>
-		<rabbitmq-httpclient.version>4.1.2</rabbitmq-httpclient.version>
-		<apache-httpclient.version>4.5.13</apache-httpclient.version>
+    <properties>
+        <rabbitmq-httpclient.version>4.1.2</rabbitmq-httpclient.version>
+        <apache-httpclient.version>4.5.13</apache-httpclient.version>
+        <spring-kafka.version>3.0.10</spring-kafka.version>
 	</properties>
 
 	<dependencies>
