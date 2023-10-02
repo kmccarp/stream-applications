@@ -41,7 +41,7 @@ import org.springframework.core.annotation.AnnotatedElementUtils;
 public class BaseContainerExtension implements ExecutionCondition {
 	private static StreamAppContainer baseContainer;
 
-	private static Logger logger = LoggerFactory.getLogger(BaseContainerExtension.class);
+	private static final Logger logger = LoggerFactory.getLogger(BaseContainerExtension.class);
 
 	public static StreamAppContainer containerInstance() {
 		return baseContainer;

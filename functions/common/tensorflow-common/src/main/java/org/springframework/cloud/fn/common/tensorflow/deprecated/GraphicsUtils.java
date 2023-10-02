@@ -519,7 +519,7 @@ public final class GraphicsUtils {
 
 	private static float col(int channelColor, float grayScale) {
 		//return ((float) channelColor / 255) * grayScale;
-		return ((float) channelColor / 255);
+		return (float) channelColor / 255;
 	}
 
 	public static BufferedImage toBufferedImage(Image img) {

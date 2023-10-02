@@ -135,7 +135,7 @@ public abstract class TwitterStreamSupplierTests {
 			final Flux<Message<?>> messageFlux = twitterStreamSupplier.get();
 
 			final StepVerifier stepVerifier = StepVerifier.create(messageFlux)
-					.assertNext((message) -> assertThat(new String((byte[]) message.getPayload()))
+					.assertNext(message -> assertThat(new String((byte[]) message.getPayload()))
 							.contains("\"id\":1075751718749659136"))
 					.thenCancel()
 					.verifyLater();
@@ -157,7 +157,7 @@ public abstract class TwitterStreamSupplierTests {
 			final Flux<Message<?>> messageFlux = twitterStreamSupplier.get();
 
 			final StepVerifier stepVerifier = StepVerifier.create(messageFlux)
-					.assertNext((message) -> assertThat(new String((byte[]) message.getPayload()))
+					.assertNext(message -> assertThat(new String((byte[]) message.getPayload()))
 							.contains("\"id\":1075751718749659136"))
 					.thenCancel()
 					.verifyLater();
@@ -178,7 +178,7 @@ public abstract class TwitterStreamSupplierTests {
 			final Flux<Message<?>> messageFlux = twitterStreamSupplier.get();
 
 			final StepVerifier stepVerifier = StepVerifier.create(messageFlux)
-					.assertNext((message) -> assertThat(new String((byte[]) message.getPayload()))
+					.assertNext(message -> assertThat(new String((byte[]) message.getPayload()))
 							.contains("\"id\":1075751718749659136"))
 					.thenCancel()
 					.verifyLater();

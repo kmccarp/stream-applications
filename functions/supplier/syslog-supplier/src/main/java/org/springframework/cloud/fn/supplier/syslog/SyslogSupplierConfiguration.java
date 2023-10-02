@@ -109,7 +109,7 @@ public class SyslogSupplierConfiguration {
 
 	@Bean
 	public MessageConverter syslogConverter() {
-		if (this.properties.getRfc().equals("5424")) {
+		if ("5424".equals(this.properties.getRfc())) {
 			return new RFC5424MessageConverter();
 		}
 		else {
@@ -159,7 +159,7 @@ public class SyslogSupplierConfiguration {
 		public Deserializer<?> syslogSupplierDecoder() {
 			ByteArrayLfSerializer decoder = new ByteArrayLfSerializer();
 			decoder.setMaxMessageSize(this.properties.getBufferSize());
-			if (this.properties.getRfc().equals("5424")) {
+			if ("5424".equals(this.properties.getRfc())) {
 				return new RFC6587SyslogDeserializer(decoder);
 			}
 			else {

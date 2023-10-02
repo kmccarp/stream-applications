@@ -54,7 +54,7 @@ import org.springframework.core.io.DefaultResourceLoader;
 public class SemanticSegmentation implements AutoCloseable {
 
 	private static final long CHANNELS = 3;
-	private static final float REQUIRED_INPUT_IMAGE_SIZE = 513f;
+	private static final float REQUIRED_INPUT_IMAGE_SIZE = 513F;
 	private final GraphRunner imageNormalization;
 	private final GraphRunner semanticSegmentation;
 	private final GraphRunner maskImageEncoding;
@@ -167,7 +167,7 @@ public class SemanticSegmentation implements AutoCloseable {
 
 			byte[] blendedImage = blendedTensors.get("blended_png").bytesValue();
 
-			memory.getTensorMap().entrySet().stream().forEach(e -> System.out.println(e));
+			memory.getTensorMap().entrySet().stream().forEach(System.out::println);
 
 			return blendedImage;
 		}

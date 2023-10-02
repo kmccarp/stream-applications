@@ -36,13 +36,13 @@ public class ObjectDetectionProcessorProperties {
 	 */
 	private String labels = "https://storage.googleapis.com/scdf-tensorflow-models/object-detection/mscoco_label_map.pbtxt";
 
-	private float confidence = 0.4f;
+	private float confidence = 0.4F;
 
 	private boolean withMasks;
 
 	private boolean cacheModel = true;
 
-	private boolean debugOutput = false;
+	private boolean debugOutput;
 
 	private String debugOutputPath = "object-detection-result.png";
 

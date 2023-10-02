@@ -46,7 +46,7 @@ public class ImapFailTests extends AbstractMailSupplierTests {
 		// then
 		assertThat(TestUtils.getPropertyValue(mailToStringTransformer, "charset").equals("cp1251")).isTrue();
 		StepVerifier.create(messageFlux)
-			.assertNext((message) -> {
+			.assertNext(message -> {
 					assertThat(((String) message.getPayload())).isNotEqualTo("Test Mail");
 				}
 			)

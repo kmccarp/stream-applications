@@ -85,7 +85,7 @@ public class TwitterTrendFunctionConfiguration {
 			TwitterTrendFunctionProperties properties, Function<Message<?>,
 			List<Location>> closestOrAvailableTrends) {
 
-		return (properties.getTrendQueryType() == TwitterTrendFunctionProperties.TrendQueryType.trend) ?
+		return properties.getTrendQueryType() == TwitterTrendFunctionProperties.TrendQueryType.trend ?
 				trend.andThen(managedJson) : closestOrAvailableTrends.andThen(managedJson);
 	}
 }

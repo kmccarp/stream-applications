@@ -71,8 +71,8 @@ public class ObjectDetectionOutputConverter implements Function<Map<String, Tens
 	public static final String NUM_DETECTIONS = "num_detections";
 
 	private final String[] labels;
-	private float confidence;
-	private List<String> modelFetch;
+	private final float confidence;
+	private final List<String> modelFetch;
 
 	public ObjectDetectionOutputConverter(Resource labelsResource, float confidence, List<String> modelFetch) {
 		this.confidence = confidence;

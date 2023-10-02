@@ -139,7 +139,7 @@ public class AppStarterWebSecurityAutoConfiguration {
 		 */
 		static RequestMatcher to(HttpMethod httpMethod, String... endpoints) {
 			final EndpointRequest.EndpointRequestMatcher matcher = EndpointRequest.to(endpoints);
-			return (request) -> {
+			return request -> {
 				if (!httpMethod.toString().equals(request.getMethod())) {
 					return false;
 				}
@@ -149,7 +149,7 @@ public class AppStarterWebSecurityAutoConfiguration {
 
 		static RequestMatcher toAnyEndpoint(HttpMethod httpMethod) {
 			final EndpointRequest.EndpointRequestMatcher matcher = EndpointRequest.toAnyEndpoint();
-			return (request) -> {
+			return request -> {
 				if (!httpMethod.toString().equals(request.getMethod())) {
 					return false;
 				}

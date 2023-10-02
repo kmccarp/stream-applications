@@ -43,17 +43,16 @@ public final class NativeImageUtils {
 	 * https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/ops/image_ops_impl.py#L1536
 	 */
 	public static <T> Operand<T> grayscaleToRgb(Ops tf, Operand<T> images) {
-		ExpandDims<Integer> rank_1 = tf.expandDims(
+		ExpandDims<Integer> rank1 = tf.expandDims(
 				tf.math.sub(tf.rank(images), tf.constant(1)),
 				tf.constant(0));
 		// Create once 1D vector of the shape defined by the rank_1.
 		// E.g. for rank [2] will produce matrix [1, 1]. For [3] rank will produce a cube [1, 1, 1]
-		Add<Integer> ones = tf.math.add(tf.zeros(rank_1, Integer.class), tf.constant(1));
+		Add<Integer> ones = tf.math.add(tf.zeros(rank1, Integer.class), tf.constant(1));
 		// Convert scalar 3 into 1D array [3]
 		ExpandDims<Integer> channelsAs1D = tf.expandDims(tf.constant(3), tf.constant(0));
 		Concat<Integer> shapeList = tf.concat(Arrays.asList(ones, channelsAs1D), tf.constant(0));
-		Tile<T> tile = tf.withName("grayscaleToRgb").tile(images, shapeList);
-		return tile;
+		return tf.withName("grayscaleToRgb").tile(images, shapeList);
 	}
 
 	public static Operand<Float> normalizeMask(Ops tf, Operand<Float> mask, float newValue) {
@@ -65,9 +64,7 @@ public final class NativeImageUtils {
 
 		ReduceMax<Float> max = tf.reduceMax(mask, axisRange);
 		//Mul<Float> input2Float1 = tf.math.mul(tf.math.div(input2Float, max), tf.constant(1f));
-		Mul<Float> normalizedMask = tf.math.mul(tf.math.div(mask, max), tf.constant(newValue));
-
-		return normalizedMask;
+		return tf.math.mul(tf.math.div(mask, max), tf.constant(newValue));
 	}
 
 	/**
@@ -78,12 +75,10 @@ public final class NativeImageUtils {
 		Sub<Float> alpha = tf.math.sub(tf.onesLike(srcRgb), srcAlpha);
 		Mul<Float> src = tf.math.mul(srcRgb, alpha);
 		Mul<Float> dst = tf.math.mul(dstRgb, tf.math.sub(tf.constant(1.0f), alpha));
-		Add<Float> out = tf.math.add(dst, src);
-
 		//Mul<Float> out = tf.math.mul(srcRgbNormalized, dstRgb);
 		//Squeeze<Float> squeeze = tf.withName("squeeze").squeeze(out, Squeeze.axis(Arrays.asList(0L)));
 
-		return out;
+		return tf.math.add(dst, src);
 	}
 
 	/**

@@ -51,7 +51,7 @@ public class EnrichFromMemory implements AutoCloseable {
 	public int compute(Integer input) {
 		try (
 				Tensor x = Tensor.create(input);
-				GraphRunnerMemory memory = new GraphRunnerMemory();
+				GraphRunnerMemory memory = new GraphRunnerMemory()
 		) {
 
 			Map<String, Tensor<?>> result =

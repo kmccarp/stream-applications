@@ -80,7 +80,7 @@ public final class Functions {
 				.filter(e -> mappingMap.containsKey(e.getKey()))
 				.collect(Collectors.toMap(
 						kv -> mappingMap.get(kv.getKey()),
-						kv -> kv.getValue()
+						java.util.Map.Entry::getValue
 				));
 	}
 }

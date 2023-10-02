@@ -32,7 +32,7 @@ import org.springframework.cloud.fn.common.tensorflow.util.AutoCloseables;
  */
 public class GraphRunnerMemory implements Function<Map<String, Tensor<?>>, Map<String, Tensor<?>>>, AutoCloseable {
 
-	private AtomicReference<PMap<String, Tensor<?>>> tensorMap = new AtomicReference<>(HashTreePMap.empty());
+	private final AtomicReference<PMap<String, Tensor<?>>> tensorMap = new AtomicReference<>(HashTreePMap.empty());
 
 	public Map<String, Tensor<?>> getTensorMap() {
 		return tensorMap.get();

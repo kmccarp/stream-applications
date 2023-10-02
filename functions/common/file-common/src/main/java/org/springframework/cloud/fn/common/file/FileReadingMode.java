@@ -34,5 +34,5 @@ public enum FileReadingMode {
 	/**
 	 * contents mode.
 	 */
-	contents;
+	contents
 }

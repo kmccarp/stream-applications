@@ -68,7 +68,7 @@ public class DefaultFileSupplierTests extends AbstractFileSupplierTests {
 
 		StepVerifier stepVerifier =
 				StepVerifier.create(messageFlux)
-						.assertNext((message) -> {
+						.assertNext(message -> {
 									assertThat(message.getPayload())
 											.isEqualTo("first.file".getBytes());
 									assertThat(message.getHeaders())
@@ -79,7 +79,7 @@ public class DefaultFileSupplierTests extends AbstractFileSupplierTests {
 											.containsEntry(FileHeaders.ORIGINAL_FILE, firstFile.toFile());
 								}
 						)
-						.assertNext((message) -> {
+						.assertNext(message -> {
 							assertThat(message.getPayload())
 									.isEqualTo("testing".getBytes());
 							assertThat(message.getHeaders())

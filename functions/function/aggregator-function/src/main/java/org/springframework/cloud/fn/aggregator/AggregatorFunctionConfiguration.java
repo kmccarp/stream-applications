@@ -68,9 +68,9 @@ public class AggregatorFunctionConfiguration {
 		FluxMessageChannel outputChannel
 	) {
 		return input -> Flux.from(outputChannel)
-			.doOnRequest((request) ->
+			.doOnRequest(request ->
 					inputChannel.subscribeTo(
-							input.map((inputMessage) ->
+							input.map(inputMessage ->
 									MessageBuilder.fromMessage(inputMessage)
 											.removeHeader("kafka_consumer")
 											.build())));

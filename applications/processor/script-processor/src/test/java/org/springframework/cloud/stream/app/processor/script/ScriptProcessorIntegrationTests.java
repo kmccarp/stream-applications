@@ -59,7 +59,7 @@ public class ScriptProcessorIntegrationTests {
 
 			processorInput.send(new GenericMessage<>("hello world"));
 			Message<byte[]> sourceMessage = processorOutput.receive(10000, "scriptProcessorFunction-out-0");
-			assertThat(new String(sourceMessage.getPayload())).matches(s -> s.equals("4") || s.equals("4.0"));
+			assertThat(new String(sourceMessage.getPayload())).matches(s -> "4".equals(s) || "4.0".equals(s));
 			ObjectMapper objectMapper = new ObjectMapper();
 			final Integer deserializedValue = objectMapper.readValue(sourceMessage.getPayload(), Integer.class);
 			assertThat(deserializedValue).matches(i -> i == 4 || i == 4.0);

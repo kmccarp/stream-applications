@@ -40,8 +40,7 @@ public class FtpSessionFactoryConfiguration {
 		ftpSessionFactory.setPassword(properties.getPassword());
 		ftpSessionFactory.setClientMode(properties.getClientMode().getMode());
 		if (properties.getCacheSessions() != null) {
-			CachingSessionFactory<FTPFile> csf = new CachingSessionFactory<>(ftpSessionFactory);
-			return csf;
+			return new CachingSessionFactory<>(ftpSessionFactory);
 		}
 		else {
 			return ftpSessionFactory;

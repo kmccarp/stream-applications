@@ -97,7 +97,7 @@ public class MqttSupplierTests {
 		final Flux<Message<?>> messageFlux = mqttSupplier.get();
 
 		StepVerifier.create(messageFlux)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 							assertThat(message.getPayload())
 									.isEqualTo("hello");
 						}

@@ -41,10 +41,10 @@ public final class ImageRecognitionExample {
 
 		// MmobileNetV2 models
 		// https://github.com/tensorflow/models/tree/master/research/slim/nets/mobilenet#pretrained-models
-		String mobilenet_v2_modelUri = "https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.4_224.tgz#mobilenet_v2_1.4_224_frozen.pb";
+		String mobilenetV2ModelUri = "https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.4_224.tgz#mobilenet_v2_1.4_224_frozen.pb";
 		//String mobilenet_v2_modelUri = "https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_0.35_96.tgz#mobilenet_v2_0.35_96_frozen.pb";
 		try (ImageRecognition imageRecognition = ImageRecognition.mobileNetV2(
-				mobilenet_v2_modelUri,
+				mobilenetV2ModelUri,
 				224,
 				5,
 				true)) {
@@ -62,9 +62,9 @@ public final class ImageRecognitionExample {
 		}
 
 
-		String mobilenet_v1_modelUri = "https://download.tensorflow.org/models/mobilenet_v1_2018_08_02/mobilenet_v1_1.0_224.tgz#mobilenet_v1_1.0_224_frozen.pb";
+		String mobilenetV1ModelUri = "https://download.tensorflow.org/models/mobilenet_v1_2018_08_02/mobilenet_v1_1.0_224.tgz#mobilenet_v1_1.0_224_frozen.pb";
 		try (ImageRecognition recognitionService = ImageRecognition.mobileNetV1(
-				mobilenet_v1_modelUri,
+				mobilenetV1ModelUri,
 				224,
 				5,
 				true)) {
@@ -81,9 +81,9 @@ public final class ImageRecognitionExample {
 			System.out.println("mobilnetV1 result:" + jsonRecognizedObjects);
 		}
 
-		String inception_modelUri = "https://storage.googleapis.com/scdf-tensorflow-models/image-recognition/tensorflow_inception_graph.pb";
+		String inceptionModelUri = "https://storage.googleapis.com/scdf-tensorflow-models/image-recognition/tensorflow_inception_graph.pb";
 		try (ImageRecognition recognitionService = ImageRecognition.inception(
-				inception_modelUri,
+				inceptionModelUri,
 				224,
 				5,
 				true)) {

@@ -87,7 +87,7 @@ abstract class MongoDBSinkTests {
 
 		await().atMost(DEFAULT_DURATION).untilAsserted(() -> {
 			List<Document> docs = mongoTemplate.findAll(Document.class, "test");
-			assertThat(docs).allMatch(document -> document.get("name", String.class).equals("My Name"));
+			assertThat(docs).allMatch(document -> "My Name".equals(document.get("name", String.class)));
 		});
 	}
 

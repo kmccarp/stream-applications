@@ -50,7 +50,7 @@ public class LinesAndMarkersAsJsonPayloadTests extends AbstractFileSupplierTests
 		final Flux<Message<?>> messageFlux = fileSupplier.get();
 
 		StepVerifier.create(messageFlux)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 							try {
 								final Object evaluate = JsonPathUtils.evaluate(message.getPayload(), "$.mark");
 								assertThat(evaluate).isEqualTo(FileSplitter.FileMarker.Mark.START.name());
@@ -60,9 +60,9 @@ public class LinesAndMarkersAsJsonPayloadTests extends AbstractFileSupplierTests
 							}
 						}
 				)
-				.assertNext((message) -> assertThat(message.getPayload()).isEqualTo("first line"))
-				.assertNext((message) -> assertThat(message.getPayload()).isEqualTo("second line"))
-				.assertNext((message) -> {
+				.assertNext(message -> assertThat(message.getPayload()).isEqualTo("first line"))
+				.assertNext(message -> assertThat(message.getPayload()).isEqualTo("second line"))
+				.assertNext(message -> {
 							try {
 								final Object fileMarker = JsonPathUtils.evaluate(message.getPayload(), "$.mark");
 								assertThat(fileMarker).isEqualTo(FileSplitter.FileMarker.Mark.END.name());

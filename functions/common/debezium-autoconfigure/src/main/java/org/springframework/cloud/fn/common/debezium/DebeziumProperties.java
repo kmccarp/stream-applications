@@ -109,7 +109,7 @@ public class DebeziumProperties {
 		/**
 		 * Uses the default Debezium engine policy (PERIODIC).
 		 */
-		DEFAULT;
+		DEFAULT
 	}
 
 	public DebeziumOffsetCommitPolicy getOffsetCommitPolicy() {

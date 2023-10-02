@@ -40,14 +40,14 @@ public class AmazonS3LinesTransferredTests extends AbstractAwsS3SupplierMockTest
 		final Flux<Message<?>> messageFlux = s3Supplier.get();
 		StepVerifier stepVerifier =
 				StepVerifier.create(messageFlux)
-						.assertNext((message) -> {
+						.assertNext(message -> {
 									assertThat(message.getPayload()).isEqualTo("Other");
 									assertThat(message.getHeaders()).containsKey(FileHeaders.ORIGINAL_FILE);
 									assertThat(message.getHeaders()).containsValue(
 											new File(this.awsS3SupplierProperties.getLocalDir(), "subdir/otherFile"));
 								}
 						)
-						.assertNext((message) -> {
+						.assertNext(message -> {
 							assertThat(message.getPayload().toString()).isEqualTo("Other2");
 						})
 						.thenCancel()

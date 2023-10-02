@@ -53,7 +53,7 @@ public class FilePayloadWithRegexTests extends AbstractFileSupplierTests {
 
 		StepVerifier stepVerifier =
 				StepVerifier.create(messageFlux)
-						.assertNext((message) -> {
+						.assertNext(message -> {
 									assertThat(message.getPayload())
 											.isEqualTo(txtFile1.toAbsolutePath().toFile());
 								}

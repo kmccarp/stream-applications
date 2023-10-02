@@ -43,7 +43,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 
 public class HttpRequestFunctionTestApplicationTests {
-	private MockWebServer server = new MockWebServer();
+	private final MockWebServer server = new MockWebServer();
 
 	private ApplicationContextRunner runner;
 

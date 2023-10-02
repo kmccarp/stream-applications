@@ -52,16 +52,16 @@ public class ExampleObjectDetection {
 		//Resource labels = resourceLoader.getResource("https://raw.githubusercontent.com/tensorflow/models/master/research/object_detection/data/fgvc_2854_classes_label_map.pbtxt");
 
 		// You can cache the TF model on the local file system to improve the bootstrap performance on consecutive runs!
-		boolean CACHE_TF_MODEL = true;
+		boolean cacheTfModel = true;
 
 		// For the pre-trained models fromMemory mask you can set the INSTANCE_SEGMENTATION to enable object instance segmentation as well
-		boolean NO_INSTANCE_SEGMENTATION = false;
+		boolean noInstanceSegmentation = false;
 
 		// Only object fromMemory confidence above the threshold are returned
-		float CONFIDENCE_THRESHOLD = 0.4f;
+		float confidenceThreshold = 0.4F;
 
 		ObjectDetectionService detectionService =
-				new ObjectDetectionService(model, labels, CONFIDENCE_THRESHOLD, NO_INSTANCE_SEGMENTATION, CACHE_TF_MODEL);
+				new ObjectDetectionService(model, labels, confidenceThreshold, noInstanceSegmentation, cacheTfModel);
 
 		// You can use file:, http: or classpath: to provide the path to the input image.
 		String inputImageUri = "classpath:/images/object-detection.jpg";
@@ -77,7 +77,7 @@ public class ExampleObjectDetection {
 			System.out.println(jsonObjectDetections);
 
 			// Draw the detected object metadata on top of the original image and store the result
-			byte[] annotatedImage = new ObjectDetectionImageAugmenter(NO_INSTANCE_SEGMENTATION).apply(image, detectedObjects);
+			byte[] annotatedImage = new ObjectDetectionImageAugmenter(noInstanceSegmentation).apply(image, detectedObjects);
 			IOUtils.write(annotatedImage, new FileOutputStream("./object-detection-function/target/object-detection-augmented.jpg"));
 		}
 	}

@@ -41,6 +41,7 @@ import org.springframework.cloud.stream.app.test.integration.MessageMatcher;
 import org.springframework.cloud.stream.app.test.integration.OutputMatcher;
 import org.springframework.cloud.stream.app.test.integration.TestTopicListener;
 import org.springframework.cloud.stream.app.test.integration.TestTopicSender;
+import org.springframework.context.Lifecycle;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -95,7 +96,7 @@ public class KafkaStreamAppContainerTestConfiguration {
 		configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 		DefaultKafkaConsumerFactory<String, String> cf = new DefaultKafkaConsumerFactory<>(configs);
-		cf.setBootstrapServersSupplier(() -> kafka.getBootstrapServers());
+		cf.setBootstrapServersSupplier(kafka::getBootstrapServers);
 		return cf;
 	}
 
@@ -114,7 +115,7 @@ public class KafkaStreamAppContainerTestConfiguration {
 		configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		DefaultKafkaProducerFactory<String, String> pf = new DefaultKafkaProducerFactory<>(configs);
-		pf.setBootstrapServersSupplier(() -> kafka.getBootstrapServers());
+		pf.setBootstrapServersSupplier(kafka::getBootstrapServers);
 		return pf;
 	}
 
@@ -169,11 +170,11 @@ public class KafkaStreamAppContainerTestConfiguration {
 		}
 
 		private void stop() {
-			this.endpointRegistry.getAllListenerContainers().forEach(container -> container.stop());
+			this.endpointRegistry.getAllListenerContainers().forEach(Lifecycle::stop);
 		}
 
 		private void start() {
-			this.endpointRegistry.getAllListenerContainers().forEach(container -> container.start());
+			this.endpointRegistry.getAllListenerContainers().forEach(Lifecycle::start);
 		}
 
 		@Override

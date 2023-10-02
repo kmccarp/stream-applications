@@ -68,8 +68,8 @@ public class XmppConsumerConfigurationTests implements XmppTestContainerSupport 
 
 	@DynamicPropertySource
 	static void registerConfigurationProperties(DynamicPropertyRegistry registry) {
-		registry.add("xmpp.factory.host", () -> XmppTestContainerSupport.getXmppHost());
-		registry.add("xmpp.factory.port", () -> XmppTestContainerSupport.getXmppMappedPort());
+		registry.add("xmpp.factory.host", XmppTestContainerSupport::getXmppHost);
+		registry.add("xmpp.factory.port", XmppTestContainerSupport::getXmppMappedPort);
 	}
 
 	@Autowired

@@ -56,7 +56,7 @@ public class TwitterConnectionProperties {
 	/**
 	 * Enables Twitter4J debug mode.
 	 */
-	private boolean debugEnabled = false;
+	private boolean debugEnabled;
 
 	/**
 	 * Enable caching the original (raw) JSON objects as returned by the Twitter APIs.

@@ -32,13 +32,13 @@ import org.testcontainers.containers.output.OutputFrame;
  * @author David Turanski
  */
 public final class LogMatcher implements Consumer<OutputFrame> {
-	private static Logger logger = LoggerFactory.getLogger(LogMatcher.class);
+	private static final Logger logger = LoggerFactory.getLogger(LogMatcher.class);
 
-	private AtomicBoolean matched = new AtomicBoolean();
+	private final AtomicBoolean matched = new AtomicBoolean();
 
-	private AtomicInteger count;
+	private final AtomicInteger count;
 
-	private Pattern pattern;
+	private final Pattern pattern;
 
 	private LogMatcher(Pattern pattern, int times) {
 		count = new AtomicInteger(times);

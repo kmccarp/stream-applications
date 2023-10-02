@@ -132,7 +132,7 @@ public class AnalyticsConsumerConfiguration {
 
 		if ((value instanceof Collection) || ObjectUtils.isArray(value)) {
 
-			Collection<?> valueCollection = (value instanceof Collection) ? (Collection<?>) value
+			Collection<?> valueCollection = value instanceof Collection ? (Collection<?>) value
 					: Arrays.asList(ObjectUtils.toObjectArray(value));
 			List<String> list = valueCollection.stream()
 					.filter(Objects::nonNull)
@@ -154,7 +154,7 @@ public class AnalyticsConsumerConfiguration {
 						for (int i = 0; i < max; i++) {
 							Tags currentTags = Tags.of(fixedTags);
 							for (Map.Entry<String, List<Tag>> e : groupedTags.entrySet()) {
-								currentTags = (e.getValue().size() > i) ?
+								currentTags = e.getValue().size() > i ?
 										currentTags.and(e.getValue().get(i)) :
 										currentTags.and(Tags.of(e.getKey(), ""));
 							}

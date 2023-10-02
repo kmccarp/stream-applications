@@ -81,7 +81,7 @@ public class SearchPagination {
 	/**
 	 * When set it.
 	 */
-	boolean searchBackwardsUntilEmptyResponse = false;
+	boolean searchBackwardsUntilEmptyResponse;
 
 	public SearchPagination(int pageCount, boolean searchBackwardsUntilEmptyResponse) {
 
@@ -113,12 +113,12 @@ public class SearchPagination {
 
 	public void update(List<Status> tweets) {
 
-		tweets.stream().mapToLong(t -> t.getId()).min()
+		tweets.stream().mapToLong(Status::getId).min()
 				.ifPresent(tweetsMinId -> {
 					this.maxId = tweetsMinId - 1;
 				});
 
-		tweets.stream().mapToLong(t -> t.getId()).max()
+		tweets.stream().mapToLong(Status::getId).max()
 				.ifPresent(tweetsMaxId -> {
 					Assert.isTrue(this.sinceId <= tweetsMaxId,
 							String.format("MAX_ID (%s) must be bigger then current SINCE_ID(%s)",

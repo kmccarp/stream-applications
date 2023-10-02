@@ -44,7 +44,7 @@ public final class FunctionComposition {
 						.withGraphDefinition(tf -> tf.withName("y2").math.add(
 								tf.withName("x2").placeholder(Integer.class),
 								tf.constant(20)));
-				Tensor x = Tensor.create(10);
+				Tensor x = Tensor.create(10)
 		) {
 
 			Map<String, Tensor<?>> result = graph1.andThen(graph2).apply(Collections.singletonMap("x", x));

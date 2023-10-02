@@ -359,7 +359,7 @@ public class SftpSupplierApplicationTests extends SftpTestSupport {
 									assertThat(expectedContentsOfAllFiles.get()).contains(payload);
 									expectedContentsOfAllFiles.get().remove(payload);
 								})
-								.expectNextMatches(message -> new String(message.getPayload()).equals("source3"))
+								.expectNextMatches(message -> "source3".equals(new String(message.getPayload())))
 								.expectNextMatches(message -> expectedContentsOfAllFiles.get()
 										.contains(new String(message.getPayload())))
 								.thenCancel()

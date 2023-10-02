@@ -44,7 +44,7 @@ public abstract class StreamApps implements AutoCloseable, Startable {
 
 	private final GenericContainer sinkContainer;
 
-	private List<GenericContainer> processorContainers;
+	private final List<GenericContainer> processorContainers;
 
 	protected StreamApps(GenericContainer sourceContainer, List<GenericContainer> processorContainers,
 			GenericContainer sinkContainer) {
@@ -97,7 +97,7 @@ public abstract class StreamApps implements AutoCloseable, Startable {
 		sinkContainer().getEnv().forEach((Consumer<String>) env -> logger.debug(env));
 	}
 
-	public static abstract class Builder<S extends StreamApps> {
+	public abstract static class Builder<S extends StreamApps> {
 		private final String streamName;
 
 		private GenericContainer source;
@@ -179,7 +179,7 @@ public abstract class StreamApps implements AutoCloseable, Startable {
 		}
 
 		private String sinkInputDestination() {
-			return (CollectionUtils.isEmpty(processors) || processors.size() <= 1) ? streamName
+			return CollectionUtils.isEmpty(processors) || processors.size() <= 1 ? streamName
 					: "processor_" + (processors.size() - 1);
 		}
 	}

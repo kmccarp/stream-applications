@@ -44,7 +44,7 @@ public class LoadGeneratorSourceProperties {
 	/**
 	 * Whether timestamp generated.
 	 */
-	private boolean generateTimestamp = false;
+	private boolean generateTimestamp;
 
 	public int getProducers() {
 		return producers;

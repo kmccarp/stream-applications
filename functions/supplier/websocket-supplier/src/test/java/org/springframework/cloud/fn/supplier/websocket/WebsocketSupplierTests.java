@@ -69,7 +69,7 @@ public class WebsocketSupplierTests {
 	public void testBasicFlow() throws IOException {
 		final Flux<Message<?>> messageFlux = websocketSupplier.get();
 		final StepVerifier stepVerifier = StepVerifier.create(messageFlux)
-				.assertNext((message) ->
+				.assertNext(message ->
 						assertThat(message.getPayload())
 								.isEqualTo(messageString)
 				)

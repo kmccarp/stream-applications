@@ -43,7 +43,7 @@ public class FileConsumerProperties {
 	 * Set to true to emit start of file/end of file marker messages before/after the data.
 	 * Only valid with FileReadingMode 'lines'.
 	 */
-	private Boolean withMarkers = null;
+	private Boolean withMarkers;
 
 	/**
 	 * When 'fileMarkers == true', specify if they should be produced

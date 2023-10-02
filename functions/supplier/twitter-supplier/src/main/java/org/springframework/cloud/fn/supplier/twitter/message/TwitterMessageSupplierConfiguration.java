@@ -65,7 +65,7 @@ public class TwitterMessageSupplierConfiguration {
 		return () -> {
 			try {
 				String cs = cursorState.getCursor();
-				DirectMessageList messages = (cursorState.getCursor() == null) ?
+				DirectMessageList messages = cursorState.getCursor() == null ?
 						twitter.getDirectMessages(properties.getCount()) :
 						twitter.getDirectMessages(properties.getCount(), cursorState.getCursor());
 
@@ -106,7 +106,7 @@ public class TwitterMessageSupplierConfiguration {
 	}
 
 	public static class MessageCursor {
-		private String cursor = null;
+		private String cursor;
 
 		public String getCursor() {
 			return cursor;

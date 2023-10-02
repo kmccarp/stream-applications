@@ -40,7 +40,7 @@ public class SimpleInsertTests extends JdbcConsumerApplicationTests {
 		final Message<Payload> message = MessageBuilder.withPayload(sent).build();
 		jdbcConsumer.accept(message);
 		String result = jdbcOperations.queryForObject("select payload from messages", String.class);
-		assertThat(result).isEqualTo(("hello42"));
+		assertThat(result).isEqualTo("hello42");
 	}
 
 }

@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.integration.IntegrationMessageHeaderAccessor;
 import org.springframework.messaging.Message;
 
-final public class HeaderUtils {
+public final class HeaderUtils {
 	private HeaderUtils() {
 	}
 

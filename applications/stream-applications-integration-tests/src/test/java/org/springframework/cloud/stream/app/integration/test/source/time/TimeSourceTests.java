@@ -46,7 +46,7 @@ abstract class TimeSourceTests {
 	static StreamAppContainer source;
 
 	// "MM/dd/yy HH:mm:ss";
-	private final static Pattern pattern = Pattern.compile(".*\\d{2}/\\d{2}/\\d{2}\\s+\\d{2}:\\d{2}:\\d{2}");
+	private static final Pattern pattern = Pattern.compile(".*\\d{2}/\\d{2}/\\d{2}\\s+\\d{2}:\\d{2}:\\d{2}");
 
 	@Autowired
 	private OutputMatcher outputMatcher;
