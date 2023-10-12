@@ -57,12 +57,12 @@ public class SemanticSegmentationProcessorProperties {
 	/**
 	 * The alpha color of the computed segmentation mask image.
 	 */
-	private float maskTransparency = 0.45f;
+	private float maskTransparency = 0.45F;
 
 	/**
 	 * save output image inn the local debugOutputPath path.
 	 */
-	private boolean debugOutput = false;
+	private boolean debugOutput;
 
 	private String debugOutputPath = "semantic-segmentation-result.png";
 

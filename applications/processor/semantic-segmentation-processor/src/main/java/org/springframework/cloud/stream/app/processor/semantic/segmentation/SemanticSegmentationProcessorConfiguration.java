@@ -63,7 +63,7 @@ public class SemanticSegmentationProcessorConfiguration {
 			// You can use file:, http: or classpath: to provide the path to the input image.
 			byte[] inputImage = input.getPayload();
 
-			byte[] outputImage = (properties.getOutputType() == SemanticSegmentationProcessorProperties.OutputType.blended) ?
+			byte[] outputImage = properties.getOutputType() == SemanticSegmentationProcessorProperties.OutputType.blended ?
 					semanticSegmentation.blendMask(inputImage) : semanticSegmentation.maskImage(inputImage);
 
 			long[][] maskPixels = semanticSegmentation.maskPixels(inputImage);

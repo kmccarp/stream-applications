@@ -72,7 +72,7 @@ abstract class JdbcSourceTests {
 	}
 
 	private static void startSource() {
-		await().atMost(DEFAULT_DURATION).until(() -> mySQL.isRunning());
+		await().atMost(DEFAULT_DURATION).until(mySQL::isRunning);
 		source.start();
 	}
 

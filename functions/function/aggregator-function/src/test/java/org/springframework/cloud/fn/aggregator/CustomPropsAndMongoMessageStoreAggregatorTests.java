@@ -64,7 +64,7 @@ public class CustomPropsAndMongoMessageStoreAggregatorTests extends AbstractAggr
 		Flux<Message<?>> output = this.aggregatorFunction.apply(input);
 
 		output.as(StepVerifier::create)
-				.assertNext((message) ->
+				.assertNext(message ->
 						assertThat(message)
 								.extracting(Message::getPayload)
 								.isInstanceOf(List.class)

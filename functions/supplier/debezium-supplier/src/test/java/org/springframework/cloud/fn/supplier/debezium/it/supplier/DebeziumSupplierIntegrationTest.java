@@ -112,44 +112,44 @@ public class DebeziumSupplierIntegrationTest {
 				.expectNextCount(16) // Skip the DDL transaction logs.
 
 				// Customers table
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":1001,\"first_name\":\"Sally\",\"last_name\":\"Thomas\",\"email\":\"sally.thomas@acme.com\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"customers\",\"__deleted\":\"false\"}"))
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":1002,\"first_name\":\"George\",\"last_name\":\"Bailey\",\"email\":\"gbailey@foobar.com\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"customers\",\"__deleted\":\"false\"}"))
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":1003,\"first_name\":\"Edward\",\"last_name\":\"Walker\",\"email\":\"ed@walker.com\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"customers\",\"__deleted\":\"false\"}"))
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":1004,\"first_name\":\"Anne\",\"last_name\":\"Kretchmar\",\"email\":\"annek@noanswer.org\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"customers\",\"__deleted\":\"false\"}"))
 
 				// NEW Customer Insert
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":1005,\"first_name\":\"Test666\",\"last_name\":\"Test666\",\"email\":\"Test666@spring.org\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"customers\",\"__deleted\":\"false\"}"))
 
 				// Addresses table
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":10,\"customer_id\":1001,\"street\":\"3183 Moore Avenue\",\"city\":\"Euless\",\"state\":\"Texas\",\"zip\":\"76036\",\"type\":\"SHIPPING\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"addresses\",\"__deleted\":\"false\"}"))
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":11,\"customer_id\":1001,\"street\":\"2389 Hidden Valley Road\",\"city\":\"Harrisburg\",\"state\":\"Pennsylvania\",\"zip\":\"17116\",\"type\":\"BILLING\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"addresses\",\"__deleted\":\"false\"}"))
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":12,\"customer_id\":1002,\"street\":\"281 Riverside Drive\",\"city\":\"Augusta\",\"state\":\"Georgia\",\"zip\":\"30901\",\"type\":\"BILLING\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"addresses\",\"__deleted\":\"false\"}"))
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":13,\"customer_id\":1003,\"street\":\"3787 Brownton Road\",\"city\":\"Columbus\",\"state\":\"Mississippi\",\"zip\":\"39701\",\"type\":\"SHIPPING\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"addresses\",\"__deleted\":\"false\"}"))
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":14,\"customer_id\":1003,\"street\":\"2458 Lost Creek Road\",\"city\":\"Bethlehem\",\"state\":\"Pennsylvania\",\"zip\":\"18018\",\"type\":\"SHIPPING\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"addresses\",\"__deleted\":\"false\"}"))
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":15,\"customer_id\":1003,\"street\":\"4800 Simpson Square\",\"city\":\"Hillsdale\",\"state\":\"Oklahoma\",\"zip\":\"73743\",\"type\":\"BILLING\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"addresses\",\"__deleted\":\"false\"}"))
-				.assertNext((message) -> assertThat(payloadString(message))
+				.assertNext(message -> assertThat(payloadString(message))
 						.isEqualTo(
 								"{\"id\":16,\"customer_id\":1004,\"street\":\"1289 University Hill Road\",\"city\":\"Canehill\",\"state\":\"Arkansas\",\"zip\":\"72717\",\"type\":\"LIVING\",\"__name\":\"my-topic\",\"__db\":\"inventory\",\"__op\":\"r\",\"__table\":\"addresses\",\"__deleted\":\"false\"}"))
 				.thenCancel()

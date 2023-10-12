@@ -72,12 +72,12 @@ public class SftpSupplierProperties {
 	/**
 	 * Set to true to delete remote files after successful transfer.
 	 */
-	private boolean deleteRemoteFiles = false;
+	private boolean deleteRemoteFiles;
 
 	/**
 	 * A SpEL expression resolving to the new name remote files must be renamed to after successful transfer.
 	 */
-	private Expression renameRemoteFilesTo = null;
+	private Expression renameRemoteFilesTo;
 
 	/**
 	 * The local directory to use for file transfers.
@@ -107,12 +107,12 @@ public class SftpSupplierProperties {
 	/**
 	 * Set to true to stream the file rather than copy to a local directory.
 	 */
-	private boolean stream = false;
+	private boolean stream;
 
 	/**
 	 * Set to true to return file metadata without the entire payload.
 	 */
-	private boolean listOnly = false;
+	private boolean listOnly;
 
 	/**
 	 * Duration of delay when no new files are detected.
@@ -362,12 +362,12 @@ public class SftpSupplierProperties {
 		/**
 		 * True to allow an unknown or changed key.
 		 */
-		private boolean allowUnknownKeys = false;
+		private boolean allowUnknownKeys;
 
 		/**
 		 * A SpEL expression resolving to the location of the known hosts file.
 		 */
-		private Expression knownHostsExpression = null;
+		private Expression knownHostsExpression;
 
 		@NotBlank
 		public String getHost() {

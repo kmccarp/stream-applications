@@ -50,27 +50,27 @@ public class DefaultJdbcSupplierTests {
 		final Flux<Message<?>> messageFlux = jdbcSupplier.get();
 		StepVerifier stepVerifier =
 				StepVerifier.create(messageFlux)
-						.assertNext((message) ->
+						.assertNext(message ->
 								assertThat(message)
-										.satisfies((msg) -> assertThat(msg)
+										.satisfies(msg -> assertThat(msg)
 												.extracting(Message::getPayload)
 												.matches(o -> {
 													Map map = (Map) o;
 													return map.get("ID").equals(1L) && map.get("NAME").equals("Bob");
 												})
 										))
-						.assertNext((message) ->
+						.assertNext(message ->
 								assertThat(message)
-										.satisfies((msg) -> assertThat(msg)
+										.satisfies(msg -> assertThat(msg)
 												.extracting(Message::getPayload)
 												.matches(o -> {
 													Map map = (Map) o;
 													return map.get("ID").equals(2L) && map.get("NAME").equals("Jane");
 												})
 										))
-						.assertNext((message) ->
+						.assertNext(message ->
 								assertThat(message)
-										.satisfies((msg) -> assertThat(msg)
+										.satisfies(msg -> assertThat(msg)
 												.extracting(Message::getPayload)
 												.matches(o -> {
 													Map map = (Map) o;

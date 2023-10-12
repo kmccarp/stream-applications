@@ -31,7 +31,7 @@ import org.springframework.messaging.support.MessageBuilder;
  */
 public class SftpSupplierRotator extends RotatingServerAdvice {
 
-	private static String SFTP_SELECTED_SERVER_PROPERTY_KEY = "sftp_selectedServer";
+    private static final String SFTP_SELECTED_SERVER_PROPERTY_KEY = "sftp_selectedServer";
 
 	private final SftpSupplierProperties properties;
 

@@ -61,11 +61,11 @@ public final class ImageNetReadableNamesWriter {
 	}
 
 	/** BASE_URL. */
-	public final static String BASE_URL = "https://raw.githubusercontent.com/tensorflow/models/master/research/inception/inception/data/";
+	public static final String BASE_URL = "https://raw.githubusercontent.com/tensorflow/models/master/research/inception/inception/data/";
 	/** SYNSET_URI. */
-	public final static String SYNSET_URI = BASE_URL + "imagenet_lsvrc_2015_synsets.txt";
+	public static final String SYNSET_URI = BASE_URL + "imagenet_lsvrc_2015_synsets.txt";
 	/** SYNSET_TO_HUMAN_URI. */
-	public final static String SYNSET_TO_HUMAN_URI = BASE_URL + "imagenet_metadata.txt";
+	public static final String SYNSET_TO_HUMAN_URI = BASE_URL + "imagenet_metadata.txt";
 
 	public static void main(String[] args) {
 		Charset utf8 = Charset.forName("UTF-8");
@@ -74,7 +74,7 @@ public final class ImageNetReadableNamesWriter {
 			InputStream synsetToHumanIs = toResource(SYNSET_TO_HUMAN_URI).getInputStream()) {
 
 			List<String> synsetList = Arrays.asList(StreamUtils.copyToString(synsetIs, utf8)
-					.split("\n")).stream().map(l -> l.trim()).collect(Collectors.toList());
+					.split("\n")).stream().map(String::trim).collect(Collectors.toList());
 			Assert.notNull(synsetList, "Failed to initialize the labels list");
 			Assert.isTrue(synsetList.size() == 1000, "Labels list is expected to be of " +
 					"size 1000 but was:" + synsetList.size());
@@ -85,7 +85,7 @@ public final class ImageNetReadableNamesWriter {
 			Assert.isTrue(synsetToHuman.size() == 21842, "synsetToHuman is expected to be of " +
 					"size 21842 but was:" + synsetToHuman.size());
 
-			List<String> l = synsetList.stream().map(id -> synsetToHuman.get(id)).collect(Collectors.toList());
+			List<String> l = synsetList.stream().map(synsetToHuman::get).collect(Collectors.toList());
 
 			List<String> ll = new ArrayList<>();
 			ll.add("dummy");

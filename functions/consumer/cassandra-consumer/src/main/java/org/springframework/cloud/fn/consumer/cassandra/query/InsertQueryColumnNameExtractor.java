@@ -40,7 +40,7 @@ public class InsertQueryColumnNameExtractor implements ColumnNameExtractor {
 			String[] params = StringUtils.delimitedListToStringArray(matcher.group(2), ",", " ");
 			for (int i = 0; i < columns.length; i++) {
 				String param = params[i];
-				if (param.equals("?")) {
+				if ("?".equals(param)) {
 					extractedColumns.add(columns[i]);
 				}
 				else if (param.startsWith(":")) {

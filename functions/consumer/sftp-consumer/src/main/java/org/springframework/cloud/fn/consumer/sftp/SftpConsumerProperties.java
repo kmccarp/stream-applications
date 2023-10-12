@@ -191,12 +191,12 @@ public class SftpConsumerProperties {
 		/**
 		 * True to allow an unknown or changed key.
 		 */
-		private boolean allowUnknownKeys = false;
+		private boolean allowUnknownKeys;
 
 		/**
 		 * A SpEL expression resolving to the location of the known hosts file.
 		 */
-		private Expression knownHostsExpression = null;
+		private Expression knownHostsExpression;
 
 
 		@NotBlank

@@ -50,7 +50,7 @@ public class ImapPassTests extends AbstractMailSupplierTests {
 		final Flux<Message<?>> messageFlux = mailSupplier.get();
 		// then
 		StepVerifier.create(messageFlux)
-			.assertNext((message) -> {
+			.assertNext(message -> {
 					assertThat(((String) message.getPayload())).isEqualTo("foo");
 					MessageHeaders headers = message.getHeaders();
 					assertThat(headers.get(MailHeaders.TO)).isInstanceOf(List.class);

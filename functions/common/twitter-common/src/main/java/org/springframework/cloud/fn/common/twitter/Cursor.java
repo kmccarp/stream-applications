@@ -27,7 +27,7 @@ public class Cursor {
 	}
 
 	public void updateCursor(long newCursor) {
-		this.cursor = (newCursor > 0) ? newCursor : -1;
+		this.cursor = newCursor > 0 ? newCursor : -1;
 	}
 
 	@Override

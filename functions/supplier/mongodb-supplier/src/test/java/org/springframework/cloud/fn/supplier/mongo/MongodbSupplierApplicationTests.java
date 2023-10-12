@@ -81,11 +81,11 @@ class MongodbSupplierApplicationTests implements MongoDbTestContainerSupport {
 		// when
 		StepVerifier.create(messageFlux)
 		// then
-				.assertNext((message) ->
+				.assertNext(message ->
 						assertThat(toMap(message)).contains(
 								entry("greeting", "hello"),
 								entry("name", "foo")))
-				.assertNext((message) ->
+				.assertNext(message ->
 						assertThat(toMap(message)).contains(
 								entry("greeting", "hola"),
 								entry("name", "bar")))

@@ -59,7 +59,7 @@ public class DefaultAggregatorTests extends AbstractAggregatorFunctionTests {
 		Flux<Message<?>> output = this.aggregatorFunction.apply(input.log("DefaultAggregatorTests:input"));
 		output.log("DefaultAggregatorTests:output")
 			.as(StepVerifier::create)
-			.assertNext((message) -> {
+			.assertNext(message -> {
 				assertThat(message)
 					.extracting(Message::getPayload)
 					.asList()

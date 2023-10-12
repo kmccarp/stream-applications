@@ -55,7 +55,7 @@ public class JmsSupplierProperties {
 	/**
 	 * A selector for messages.
 	 */
-	private String messageSelector = null;
+	private String messageSelector;
 
 	/**
 	 * True for a durable subscription.

@@ -67,13 +67,13 @@ public class TwitterGeoFunctionProperties {
 	 * assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device
 	 * has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.).
 	 */
-	private String accuracy = null;
+	private String accuracy;
 
 	/**
 	 * Minimal granularity of data to return. If this is not passed in, then neighborhood is assumed.
 	 * City can also be passed.
 	 */
-	private String granularity = null;
+	private String granularity;
 
 	public Search getSearch() {
 		return search;
@@ -141,12 +141,12 @@ public class TwitterGeoFunctionProperties {
 		 * An IP address. Used when attempting to fix geolocation based off of the user's IP address.
 		 * Applicable only for 'search' geo type.
 		 */
-		private Expression ip = null;
+		private Expression ip;
 
 		/**
 		 * Query expression to filter Places in search results.
 		 */
-		private Expression query = null;
+		private Expression query;
 
 		public Expression getIp() {
 			return ip;

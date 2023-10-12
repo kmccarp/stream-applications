@@ -63,7 +63,7 @@ public class DebeziumReactiveConsumerConfiguration implements BeanClassLoaderAwa
 	 */
 	public static final String ORG_SPRINGFRAMEWORK_KAFKA_SUPPORT_KAFKA_NULL = "org.springframework.kafka.support.KafkaNull";
 
-	private Object kafkaNull = null;
+	private Object kafkaNull;
 
 	@Override
 	public void setBeanClassLoader(ClassLoader classLoader) {
@@ -159,7 +159,7 @@ public class DebeziumReactiveConsumerConfiguration implements BeanClassLoaderAwa
 					.setHeader("debezium_key", key)
 					.setHeader("debezium_destination", destination)
 					.setHeader(MessageHeaders.CONTENT_TYPE,
-							(payload.equals(DebeziumReactiveConsumerConfiguration.this.kafkaNull))
+							payload.equals(DebeziumReactiveConsumerConfiguration.this.kafkaNull)
 									? MimeTypeUtils.TEXT_PLAIN_VALUE
 									: this.contentType);
 

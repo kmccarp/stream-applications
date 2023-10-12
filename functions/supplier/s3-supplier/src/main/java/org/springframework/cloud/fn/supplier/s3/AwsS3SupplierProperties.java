@@ -52,7 +52,7 @@ public class AwsS3SupplierProperties {
 	/**
 	 * Delete or not remote files after processing.
 	 */
-	private boolean deleteRemoteFiles = false;
+	private boolean deleteRemoteFiles;
 
 	/**
 	 * The local directory to store files.
@@ -82,7 +82,7 @@ public class AwsS3SupplierProperties {
 	/**
 	 * Set to true to return s3 object metadata without copying file to a local directory.
 	 */
-	private boolean listOnly = false;
+	private boolean listOnly;
 
 	@Length(min = 3)
 	public String getRemoteDir() {

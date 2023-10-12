@@ -141,7 +141,7 @@ public class DebeziumEngineBuilderAutoConfiguration {
 				.using(debeziumClock)
 				.using(completionCallback)
 				.using(connectorCallback)
-				.using((offsetCommitPolicy != NULL_OFFSET_COMMIT_POLICY) ? offsetCommitPolicy : null);
+				.using(offsetCommitPolicy != NULL_OFFSET_COMMIT_POLICY ? offsetCommitPolicy : null);
 	}
 
 	/**

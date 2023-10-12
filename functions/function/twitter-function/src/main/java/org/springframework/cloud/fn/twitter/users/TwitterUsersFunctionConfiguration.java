@@ -52,8 +52,7 @@ public class TwitterUsersFunctionConfiguration {
 		return message -> {
 			String query = properties.getSearch().getQuery().getValue(message, String.class);
 			try {
-				ResponseList<User> users = twitter.searchUsers(query, properties.getSearch().getPage());
-				return users;
+				return twitter.searchUsers(query, properties.getSearch().getPage());
 			}
 			catch (TwitterException e) {
 				logger.error("Twitter API error!", e);

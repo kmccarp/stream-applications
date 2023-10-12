@@ -47,7 +47,7 @@ public class JdbcSupplierProperties {
 	/**
 	 * Max numbers of rows to process for query.
 	 */
-	private int maxRows = 0;
+	private int maxRows;
 
 	@NotNull
 	public String getQuery() {

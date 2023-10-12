@@ -122,7 +122,7 @@ public class FtpTestSupport extends RemoteFileTestSupport {
 
 		@Override
 		public boolean isAdmin(String s) throws FtpException {
-			return s.equals("admin");
+			return "admin".equals(s);
 		}
 
 	}

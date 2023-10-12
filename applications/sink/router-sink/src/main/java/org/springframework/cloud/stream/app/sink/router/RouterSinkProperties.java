@@ -80,7 +80,7 @@ public class RouterSinkProperties {
 	/**
 	 * Whether channel resolution is required.
 	 */
-	private boolean resolutionRequired = false;
+	private boolean resolutionRequired;
 
 	/**
 	 * Destination mappings as a new line delimited string of name-value pairs, e.g. 'foo=bar\n baz=car'.

@@ -58,13 +58,13 @@ public class TwitterSearchSupplierProperties {
 	/**
 	 * Restricts searched tweets to the given language, given by an http://en.wikipedia.org/wiki/ISO_639-1 .
 	 */
-	private String lang = null;
+	private String lang;
 
 	/**
 	 * If specified, returns tweets with since the given date. Date should be formatted as YYYY-MM-DD.
 	 */
 	@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
-	private String since = null;
+	private String since;
 
 	/**
 	 * If specified, returns tweets by users located within a given radius (in Km) of the given latitude/longitude,
@@ -87,7 +87,7 @@ public class TwitterSearchSupplierProperties {
 	 * Restart search from the most recent tweets on empty response.
 	 * Applied only after the first restart (e.g. when since_id != UNBOUNDED)
 	 */
-	private boolean restartFromMostRecentOnEmptyResponse = false;
+	private boolean restartFromMostRecentOnEmptyResponse;
 
 	public String getQuery() {
 		return query;

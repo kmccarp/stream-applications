@@ -77,7 +77,7 @@ public abstract class AbstractGraphRunner implements Function<Map<String, Tensor
 
 		// Feed in the input named tensors
 		for (Map.Entry<String, Tensor<?>> feedEntry : feeds.entrySet()) {
-			String feedName = (this.isAutoBinding()) ? this.feedNames.get(0) : feedEntry.getKey();
+			String feedName = this.isAutoBinding() ? this.feedNames.get(0) : feedEntry.getKey();
 			runner = runner.feed(feedName, feedEntry.getValue());
 		}
 

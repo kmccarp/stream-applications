@@ -64,7 +64,7 @@ public class ImageRecognitionProcessorProperties {
 	 */
 	private int responseSize = 5;
 
-	private boolean debugOutput = false;
+	private boolean debugOutput;
 
 	private String debugOutputPath = "image-recognition-result.png";
 

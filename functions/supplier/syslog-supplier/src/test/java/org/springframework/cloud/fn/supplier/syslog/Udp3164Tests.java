@@ -35,7 +35,7 @@ public class Udp3164Tests extends AbstractSyslogSupplierTests {
 		final Flux<Message<?>> messageFlux = syslogSupplier.get();
 
 		final StepVerifier stepVerifier = StepVerifier.create(messageFlux)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 					assertThat(((Map) message.getPayload()).get("HOST")).isEqualTo("WEBERN");
 						}
 				)

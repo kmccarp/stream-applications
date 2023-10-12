@@ -76,7 +76,7 @@ public class KafkaPublisherConfigurationTests {
 	void defaultTopicReceivesTheRecord() {
 		String defaultTopic = "DEFAULT_TOPIC";
 		this.contextRunner.withPropertyValues("spring.kafka.template.defaultTopic=" + defaultTopic)
-				.run((context) -> {
+				.run(context -> {
 					KafkaTemplate<?, ?> kafkaTemplate = obtainKafkaTemplate(context);
 					Consumer<Message<?>> kafkaPublisher = getKafkaPublisher(context);
 					String testData = "test data";
@@ -93,7 +93,7 @@ public class KafkaPublisherConfigurationTests {
 						"kafka.publisher.topic=topic1",
 						"kafka.publisher.partition=1", // Our broker allows only one partition for auto-created topic
 						"kafka.publisher.sync=true")
-				.run((context) -> {
+				.run(context -> {
 					Consumer<Message<?>> kafkaConsumer = getKafkaPublisher(context);
 					assertThatExceptionOfType(MessageHandlingException.class)
 							.isThrownBy(() -> kafkaConsumer.accept(new GenericMessage<>("test data")))
@@ -106,7 +106,7 @@ public class KafkaPublisherConfigurationTests {
 	void successChannelInteractionAndMappedHeaders() {
 		this.contextRunner.withPropertyValues("kafka.publisher.topicExpression=headers.topic",
 						"kafka.publisher.mappedHeaders=mapped")
-				.run((context) -> {
+				.run(context -> {
 					KafkaTemplate<?, ?> kafkaTemplate = obtainKafkaTemplate(context);
 					Consumer<Message<?>> kafkaConsumer = getKafkaPublisher(context);
 
@@ -132,7 +132,7 @@ public class KafkaPublisherConfigurationTests {
 					assertThat(receive).extracting(ConsumerRecord::value).isEqualTo(testData);
 					Map<String, String> headers =
 							Arrays.stream(receive.headers().toArray())
-									.collect(Collectors.toMap(Header::key, (header) -> new String(header.value())));
+									.collect(Collectors.toMap(Header::key, header -> new String(header.value())));
 					assertThat(headers)
 							.containsEntry("mapped", "mapped value")
 							.doesNotContainKeys("topic", "not mapped");

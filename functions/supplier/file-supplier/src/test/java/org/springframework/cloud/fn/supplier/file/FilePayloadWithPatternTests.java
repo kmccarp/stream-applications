@@ -52,12 +52,12 @@ public class FilePayloadWithPatternTests extends AbstractFileSupplierTests {
 		final Flux<Message<?>> messageFlux = fileSupplier.get();
 
 		StepVerifier.create(messageFlux)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 							assertThat(message.getPayload())
 									.isEqualTo(txtFile1.toAbsolutePath().toFile());
 						}
 				)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 					assertThat(message.getPayload())
 							.isEqualTo(txtFile2.toAbsolutePath().toFile());
 				})

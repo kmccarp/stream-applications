@@ -50,7 +50,7 @@ public class UpdateQueryColumnNameExtractor implements ColumnNameExtractor {
 	protected void readPairs(List<String> extractedColumns, String[] settings) {
 		for (String setting : settings) {
 			String[] columnValuePair = StringUtils.delimitedListToStringArray(setting, "=", " ");
-			if (columnValuePair[1].startsWith(":") || columnValuePair[1].equals("?")) {
+			if (columnValuePair[1].startsWith(":") || "?".equals(columnValuePair[1])) {
 				extractedColumns.add(columnValuePair[0]);
 			}
 		}

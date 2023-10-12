@@ -49,7 +49,7 @@ public final class FunctionCompositionMultipleInputsOutputs {
 						.withGraphDefinition(tf -> tf.withName("y2").math.add(
 								tf.withName("x21").placeholder(Integer.class),
 								tf.withName("x22").placeholder(Integer.class)));
-				Tensor x = Tensor.create(10);
+				Tensor x = Tensor.create(10)
 		) {
 
 			Map<String, Tensor<?>> result = graph1

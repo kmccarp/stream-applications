@@ -156,7 +156,7 @@ public class SemanticSegmentationUtils {
 		int k = 0;
 		for (int i = 0; i < maskHeight; i++) {
 			for (int j = 0; j < maskWidth; j++) {
-				Color c = (maskPixels[j][i] == 0) ? Color.BLACK : GraphicsUtils.getClassColor(maskPixels[j][i]);
+				Color c = maskPixels[j][i] == 0 ? Color.BLACK : GraphicsUtils.getClassColor(maskPixels[j][i]);
 				int t = (int) (255 * (1 - transparency));
 				maskArray[k++] = new Color(c.getRed(), c.getGreen(), c.getBlue(), t).getRGB();
 			}

@@ -47,7 +47,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ImageRecognitionProcessorTests {
 
-	private ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
 	@Test
 	public void testImageRecognitionProcessorMobileNetV2() throws IOException {

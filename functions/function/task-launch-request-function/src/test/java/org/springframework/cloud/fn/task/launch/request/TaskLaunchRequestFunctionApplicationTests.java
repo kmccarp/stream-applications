@@ -199,7 +199,7 @@ public class TaskLaunchRequestFunctionApplicationTests {
 		@Bean
 		@ConditionalOnProperty("customTaskNameExtractor")
 		TaskNameMessageMapper taskNameExtractor() {
-			return message -> ((String) (message.getPayload())).equalsIgnoreCase("foo") ? "fooTask" : "defaultTask";
+			return message -> "foo".equalsIgnoreCase(((String) (message.getPayload()))) ? "fooTask" : "defaultTask";
 		}
 
 		@Bean

@@ -122,6 +122,6 @@ public class TwitterConnectionConfiguration {
 	@Bean
 	public Function<Object, Message<byte[]>> managedJson(TwitterConnectionProperties properties,
 			Function<Object, Object> rawJsonExtractor, Function<Object, Message<byte[]>> json) {
-		return list -> (properties.isRawJson()) ? rawJsonExtractor.andThen(json).apply(list) : json.apply(list);
+		return list -> properties.isRawJson() ? rawJsonExtractor.andThen(json).apply(list) : json.apply(list);
 	}
 }

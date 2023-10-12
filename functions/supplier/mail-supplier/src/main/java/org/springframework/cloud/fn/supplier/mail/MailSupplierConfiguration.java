@@ -59,7 +59,7 @@ import org.springframework.messaging.Message;
 public class MailSupplierConfiguration {
 
 
-	final private MailSupplierProperties properties;
+	private final MailSupplierProperties properties;
 
 	public MailSupplierConfiguration(MailSupplierProperties properties) {
 		this.properties = properties;

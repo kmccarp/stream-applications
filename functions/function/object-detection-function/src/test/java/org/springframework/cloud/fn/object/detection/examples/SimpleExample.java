@@ -42,6 +42,6 @@ public class SimpleExample {
 
 		// You can use file:, http: or classpath: to provide the path to the input image.
 		List<ObjectDetection> detectedObjects = detectionService.detect("classpath:/images/object-detection.jpg");
-		detectedObjects.stream().map(o -> o.toString()).forEach(System.out::println);
+		detectedObjects.stream().map(ObjectDetection::toString).forEach(System.out::println);
 	}
 }

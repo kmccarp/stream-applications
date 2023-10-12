@@ -51,7 +51,7 @@ public class ThroughputSinkConfiguration {
 
 	private final ExecutorService executorService = Executors.newFixedThreadPool(1);
 
-	private volatile boolean reportBytes = false;
+	private volatile boolean reportBytes;
 
 	@Autowired
 	private volatile ThroughputSinkProperties properties;

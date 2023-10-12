@@ -34,11 +34,11 @@ public class TcpAndUdp3164Tests extends AbstractSyslogSupplierTests {
 	public void test() throws Exception {
 		final Flux<Message<?>> messageFlux = syslogSupplier.get();
 		final StepVerifier stepVerifier = StepVerifier.create(messageFlux)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 							assertThat(((Map) message.getPayload()).get("HOST")).isEqualTo("WEBERN");
 						}
 				)
-				.assertNext((message) -> {
+				.assertNext(message -> {
 					assertThat(((Map) message.getPayload()).get("HOST")).isEqualTo("WEBERN");
 						}
 				)

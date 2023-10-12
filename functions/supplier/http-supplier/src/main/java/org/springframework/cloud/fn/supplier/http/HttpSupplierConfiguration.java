@@ -71,11 +71,11 @@ public class HttpSupplierConfiguration {
 												.allowedHeaders(httpSupplierProperties.getCors().getAllowedHeaders())
 												.allowCredentials(httpSupplierProperties.getCors().getAllowCredentials()))
 								.autoStartup(false))
-				.enrichHeaders((headers) ->
+				.enrichHeaders(headers ->
 						headers.headerFunction(MessageHeaders.CONTENT_TYPE,
-								(message) ->
-										(MediaType.APPLICATION_FORM_URLENCODED.equals(
-												message.getHeaders().get(MessageHeaders.CONTENT_TYPE, MediaType.class)))
+								message ->
+										MediaType.APPLICATION_FORM_URLENCODED.equals(
+												message.getHeaders().get(MessageHeaders.CONTENT_TYPE, MediaType.class))
 												? MediaType.APPLICATION_JSON
 												: null,
 								true))
@@ -88,7 +88,7 @@ public class HttpSupplierConfiguration {
 			WebFluxInboundEndpoint webFluxInboundEndpoint) {
 
 		return () -> Flux.from(httpRequestPublisher)
-				.doOnSubscribe((subscription) -> webFluxInboundEndpoint.start())
+				.doOnSubscribe(subscription -> webFluxInboundEndpoint.start())
 				.doOnTerminate(webFluxInboundEndpoint::stop);
 	}
 

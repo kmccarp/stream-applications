@@ -45,17 +45,17 @@ public class MailSupplierProperties {
 	/**
 	 * Set to true to mark email as read.
 	 */
-	private boolean markAsRead = false;
+	private boolean markAsRead;
 
 	/**
 	 * Set to true to delete email after download.
 	 */
-	private boolean delete = false;
+	private boolean delete;
 
 	/**
 	 * Set to true to use IdleImap Configuration.
 	 */
-	private boolean idleImap = false;
+	private boolean idleImap;
 
 	/**
 	 * JavaMail properties as a new line delimited string of name-value pairs, e.g.

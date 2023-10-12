@@ -62,16 +62,16 @@ public class ExampleInstanceSegmentation {
 		String labels = "https://raw.githubusercontent.com/tensorflow/models/master/research/object_detection/data/mscoco_label_map.pbtxt";
 
 		// You can cache the TF model on the local file system to improve the bootstrap performance on consecutive runs!
-		boolean CACHE_TF_MODEL = true;
+		boolean cacheTfModel = true;
 
 		// For the pre-trained models fromMemory mask you can set the INSTANCE_SEGMENTATION to enable object instance segmentation as well
-		boolean INSTANCE_SEGMENTATION = true;
+		boolean instanceSegmentation = true;
 
 		// Only object fromMemory confidence above the threshold are returned
-		float CONFIDENCE_THRESHOLD = 0.4f;
+		float confidenceThreshold = 0.4F;
 
 		ObjectDetectionService detectionService =
-			new ObjectDetectionService(model, labels, CONFIDENCE_THRESHOLD, INSTANCE_SEGMENTATION, CACHE_TF_MODEL);
+			new ObjectDetectionService(model, labels, confidenceThreshold, instanceSegmentation, cacheTfModel);
 
 		// You can use file:, http: or classpath: to provide the path to the input image.
 		byte[] image = GraphicsUtils.loadAsByteArray("classpath:/images/object-detection.jpg");
@@ -84,7 +84,7 @@ public class ExampleInstanceSegmentation {
 		System.out.println(jsonObjectDetections);
 
 		// Draw the detected object metadata on top of the original image and store the result
-		byte[] annotatedImage = new ObjectDetectionImageAugmenter(INSTANCE_SEGMENTATION).apply(image, detectedObjects);
+		byte[] annotatedImage = new ObjectDetectionImageAugmenter(instanceSegmentation).apply(image, detectedObjects);
 		File projectDir = new File("functions/function/object-detection-function");
 		File output = new File(projectDir, "target/object-detection-segmentation-augmented.jpg");
 		IOUtils.write(annotatedImage, new FileOutputStream(output));

@@ -42,7 +42,7 @@ public class DebeziumReactiveConsumerConfigurationTests {
 
 	@Test
 	void noConnectorNoProperty() {
-		this.contextRunner.run((context) -> {
+		this.contextRunner.run(context -> {
 			assertThat(context).doesNotHaveBean(DebeziumEngine.class);
 		});
 	}
@@ -51,14 +51,14 @@ public class DebeziumReactiveConsumerConfigurationTests {
 	void noConnectorWithProperty() {
 		this.contextRunner.withPropertyValues("debezium.properties.connector.class=Dummy")
 				.withClassLoader(new FilteredClassLoader("io.debezium.engine.DebeziumEngine$Builder"))
-				.run((context) -> {
+				.run(context -> {
 					assertThat(context).doesNotHaveBean(DebeziumEngine.class);
 				});
 	}
 
 	@Test
 	void withConnectorWithProperty() {
-		this.contextRunner.withPropertyValues("debezium.properties.connector.class=Dummy").run((context) -> {
+		this.contextRunner.withPropertyValues("debezium.properties.connector.class=Dummy").run(context -> {
 			assertThat(context).hasSingleBean(DebeziumEngine.class);
 		});
 	}

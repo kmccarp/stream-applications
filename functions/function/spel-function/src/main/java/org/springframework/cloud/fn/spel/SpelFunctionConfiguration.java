@@ -33,7 +33,7 @@ public class SpelFunctionConfiguration {
 	public Function<Message<?>, Message<?>> spelFunction(
 			ExpressionEvaluatingTransformer expressionEvaluatingTransformer) {
 
-		return message -> expressionEvaluatingTransformer.transform(message);
+		return expressionEvaluatingTransformer::transform;
 	}
 
 	@Bean

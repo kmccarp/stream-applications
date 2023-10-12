@@ -50,7 +50,7 @@ public class SftpConsumerConfiguration {
 			@Nullable ComponentCustomizer<SftpMessageHandlerSpec> sftpMessageHandlerSpecCustomizer) {
 
 		IntegrationFlowBuilder integrationFlowBuilder =
-				IntegrationFlow.from(MessageConsumer.class, (gateway) -> gateway.beanName("sftpConsumer"));
+				IntegrationFlow.from(MessageConsumer.class, gateway -> gateway.beanName("sftpConsumer"));
 
 		SftpMessageHandlerSpec handlerSpec =
 				Sftp.outboundAdapter(new SftpRemoteFileTemplate(ftpSessionFactory), properties.getMode())

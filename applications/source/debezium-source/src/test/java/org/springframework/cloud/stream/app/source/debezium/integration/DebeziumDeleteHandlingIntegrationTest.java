@@ -142,21 +142,21 @@ public class DebeziumDeleteHandlingIntegrationTest {
 
 		Message<?> received;
 
-		if (deleteHandlingMode.equals("drop")) {
+		if ("drop".equals(deleteHandlingMode)) {
 			// Do nothing
 		}
-		else if (deleteHandlingMode.equals("none")) {
+		else if ("none".equals(deleteHandlingMode)) {
 			received = outputDestination.receive(Duration.ofSeconds(10).toMillis(), DebeziumTestUtils.BINDING_NAME);
 			assertThat(received).isNotNull();
 			assertThat(received.getPayload()).isEqualTo("null".getBytes());
 		}
-		else if (deleteHandlingMode.equals("rewrite")) {
+		else if ("rewrite".equals(deleteHandlingMode)) {
 			received = outputDestination.receive(Duration.ofSeconds(10).toMillis(), DebeziumTestUtils.BINDING_NAME);
 			assertThat(received).isNotNull();
 			assertThat(toString(received.getPayload()).contains("\"__deleted\":\"true\""));
 		}
 
-		if (!(isDropTombstones.equals("true")) && isKafkaPresent) {
+		if (!("true".equals(isDropTombstones)) && isKafkaPresent) {
 			received = outputDestination.receive(Duration.ofSeconds(10).toMillis(), DebeziumTestUtils.BINDING_NAME);
 			assertThat(received).isNotNull();
 			// Tombstones event should have KafkaNull payload
@@ -164,7 +164,7 @@ public class DebeziumDeleteHandlingIntegrationTest {
 					.isEqualTo(DebeziumReactiveConsumerConfiguration.ORG_SPRINGFRAMEWORK_KAFKA_SUPPORT_KAFKA_NULL);
 
 			Object keyRaw = received.getHeaders().get("debezium_key");
-			String key = (keyRaw instanceof byte[]) ? new String((byte[]) keyRaw) : "" + keyRaw;
+			String key = keyRaw instanceof byte[] ? new String((byte[]) keyRaw) : "" + keyRaw;
 
 			// Tombstones event should carry the deleted record id in the debezium_key header
 			assertThat(key).isEqualTo("{\"id\":" + newRecordId + "}");
